@@ -13,6 +13,7 @@
 		B61A8C9C2606A93C00452BA4 /* SearchChuckNorrisFacts.h in Headers */ = {isa = PBXBuildFile; fileRef = B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8CB12606A9AB00452BA4 /* SearchFactsViewController.swift */; };
 		B67FEA2926071C2100CA4EAC /* SearchFactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */; };
+		B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7EC7F2607A7C5001A011C /* SearchFactsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		B61A8C9B2606A93C00452BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B61A8CB12606A9AB00452BA4 /* SearchFactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsViewController.swift; sourceTree = "<group>"; };
 		B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsViewModel.swift; sourceTree = "<group>"; };
+		B6F7EC7F2607A7C5001A011C /* SearchFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		B61A8C8D2606A93C00452BA4 /* SearchChuckNorrisFacts */ = {
 			isa = PBXGroup;
 			children = (
+				B6F7EC7F2607A7C5001A011C /* SearchFactsView.swift */,
 				B61A8CB12606A9AB00452BA4 /* SearchFactsViewController.swift */,
 				B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */,
 				B6051168260714D300768042 /* SearchFactsFactoryProtocol.swift */,
@@ -206,6 +209,7 @@
 			files = (
 				B67FEA2926071C2100CA4EAC /* SearchFactsViewModel.swift in Sources */,
 				B6051169260714D300768042 /* SearchFactsFactoryProtocol.swift in Sources */,
+				B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */,
 				B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

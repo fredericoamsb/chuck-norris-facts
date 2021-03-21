@@ -12,13 +12,25 @@ public protocol SearchFactsViewModelable {
     func searchFact()
 }
 
-public class SearchFactsViewController: UIViewController {
+public final class SearchFactsViewController: UISearchContainerViewController {
 
     private let viewModel: SearchFactsViewModelable
 
     public init(viewModel: SearchFactsViewModelable) {
         self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
+
+        let searchController = UISearchController()
+        searchController.searchBar.showsCancelButton = true
+
+        let searchBar = searchController.searchBar
+        searchBar.sizeToFit()
+        searchBar.placeholder = "Search for facts"
+
+        searchController.hidesNavigationBarDuringPresentation = false
+
+        super.init(searchController: searchController)
+
+        navigationItem.titleView = searchBar
     }
 
     required init?(coder: NSCoder) {
@@ -27,12 +39,6 @@ public class SearchFactsViewController: UIViewController {
 
     // MARK: Lifecycle
     public override func loadView() {
-        view = UIView()
-        view.backgroundColor = .green
-    }
-
-    public override func viewDidLoad() {
-        super.viewDidLoad()
-
+        view = SearchFactsView()
     }
 }
