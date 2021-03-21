@@ -17,9 +17,7 @@ class SearchFactsFactory: SearchFactsFactoryProtocol {
     }
 
     func makeSearchFactsViewController() -> SearchFactsViewController {
-        guard let viewModel = resolver.resolve(SearchFactsViewModelable.self) as? SearchFactsViewModel else {
-            preconditionFailure("SearchFactsViewModelable is nil")
-        }
+        let viewModel = resolver.resolveSafe(SearchFactsViewModelable.self)
         let viewController = SearchFactsViewController(viewModel: viewModel)
         return viewController
     }

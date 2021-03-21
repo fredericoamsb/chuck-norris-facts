@@ -21,6 +21,7 @@
 		B6A259A7260699BB008FC0A8 /* DI.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A25999260699BB008FC0A8 /* DI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6A259B3260699D2008FC0A8 /* DepedencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A259B2260699D2008FC0A8 /* DepedencyInjector.swift */; };
 		B6A25A3D2606A03E008FC0A8 /* AppNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25A3426069FE2008FC0A8 /* AppNavigation.framework */; };
+		B6F7EC862607C74E001A011C /* ResolverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7EC852607C74E001A011C /* ResolverExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		B6A259A6260699BB008FC0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A259B2260699D2008FC0A8 /* DepedencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepedencyInjector.swift; sourceTree = "<group>"; };
 		B6A25A3426069FE2008FC0A8 /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6F7EC852607C74E001A011C /* ResolverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,10 +132,11 @@
 			isa = PBXGroup;
 			children = (
 				B6A259B2260699D2008FC0A8 /* DepedencyInjector.swift */,
-				B6A25999260699BB008FC0A8 /* DI.h */,
-				B6A2599A260699BB008FC0A8 /* Info.plist */,
 				B605113226070A4900768042 /* Assemblies */,
 				B605113A26070A9100768042 /* Factories */,
+				B6F7EC852607C74E001A011C /* ResolverExtension.swift */,
+				B6A25999260699BB008FC0A8 /* DI.h */,
+				B6A2599A260699BB008FC0A8 /* Info.plist */,
 			);
 			path = DI;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B605113426070A5700768042 /* CoordinatorAssembly.swift in Sources */,
+				B6F7EC862607C74E001A011C /* ResolverExtension.swift in Sources */,
 				B605114726070AB700768042 /* ViewControllersFactoryAssembly.swift in Sources */,
 				B6A259B3260699D2008FC0A8 /* DepedencyInjector.swift in Sources */,
 				B605113826070A6200768042 /* CoordinatorFactoryAssembly.swift in Sources */,

@@ -17,7 +17,7 @@ class CoordinatorFactory: CoordinatorFactoryProtocol {
     }
 
     func makeSearchFactsCoordinator() -> SearchFactsCoordinator {
-        let coordinator = resolver.resolve(SearchFactsCoordinator.self)!
+        let coordinator = resolver.resolveSafe(SearchFactsCoordinator.self)
         return coordinator
     }
 }

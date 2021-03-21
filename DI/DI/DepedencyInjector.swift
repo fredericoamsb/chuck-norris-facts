@@ -24,7 +24,7 @@ public class DependencyInjector {
             ViewControllersFactoryAssembly(),
             SearchFactsFlowAssembly()
         ])
-        let appCoordinator = assembler.resolver.resolve(AppCoordinator.self)!
+        let appCoordinator = assembler.resolver.resolveSafe(AppCoordinator.self)
         completion(appCoordinator)
     }
 
