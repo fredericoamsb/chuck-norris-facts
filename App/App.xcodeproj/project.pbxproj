@@ -3,17 +3,22 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B61A8D452606D09200452BA4 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B61A8D442606D09200452BA4 /* MyLibrary */; };
+		B61A8D462606D09200452BA4 /* MyLibrary in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B61A8D442606D09200452BA4 /* MyLibrary */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B6A2595726069733008FC0A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2595626069733008FC0A8 /* AppDelegate.swift */; };
 		B6A2595926069733008FC0A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2595826069733008FC0A8 /* SceneDelegate.swift */; };
-		B6A2595B26069733008FC0A8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2595A26069733008FC0A8 /* ViewController.swift */; };
 		B6A2596026069736008FC0A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A2595F26069736008FC0A8 /* Assets.xcassets */; };
 		B6A2596326069736008FC0A8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6A2596126069736008FC0A8 /* LaunchScreen.storyboard */; };
 		B6A2596E26069736008FC0A8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2596D26069736008FC0A8 /* AppTests.swift */; };
 		B6A2597926069736008FC0A8 /* AppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2597826069736008FC0A8 /* AppUITests.swift */; };
+		B6A25A2426069EEC008FC0A8 /* AppNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25A2226069EEC008FC0A8 /* AppNavigation.framework */; };
+		B6A25A2526069EEC008FC0A8 /* AppNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25A2226069EEC008FC0A8 /* AppNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6A25A2626069EEC008FC0A8 /* DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25A2326069EEC008FC0A8 /* DI.framework */; };
+		B6A25A2726069EEC008FC0A8 /* DI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25A2326069EEC008FC0A8 /* DI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,11 +38,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B6A25A2826069EEC008FC0A8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B61A8D462606D09200452BA4 /* MyLibrary in Embed Frameworks */,
+				B6A25A2526069EEC008FC0A8 /* AppNavigation.framework in Embed Frameworks */,
+				B6A25A2726069EEC008FC0A8 /* DI.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		B6A2595326069733008FC0A8 /* App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = App.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A2595626069733008FC0A8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6A2595826069733008FC0A8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B6A2595A26069733008FC0A8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B6A2595F26069736008FC0A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6A2596226069736008FC0A8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B6A2596426069736008FC0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +67,8 @@
 		B6A2597426069736008FC0A8 /* AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A2597826069736008FC0A8 /* AppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUITests.swift; sourceTree = "<group>"; };
 		B6A2597A26069736008FC0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6A25A2226069EEC008FC0A8 /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6A25A2326069EEC008FC0A8 /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +76,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B61A8D452606D09200452BA4 /* MyLibrary in Frameworks */,
+				B6A25A2426069EEC008FC0A8 /* AppNavigation.framework in Frameworks */,
+				B6A25A2626069EEC008FC0A8 /* DI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +106,7 @@
 				B6A2596C26069736008FC0A8 /* AppTests */,
 				B6A2597726069736008FC0A8 /* AppUITests */,
 				B6A2595426069733008FC0A8 /* Products */,
+				B6A25A2126069EEC008FC0A8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +125,6 @@
 			children = (
 				B6A2595626069733008FC0A8 /* AppDelegate.swift */,
 				B6A2595826069733008FC0A8 /* SceneDelegate.swift */,
-				B6A2595A26069733008FC0A8 /* ViewController.swift */,
 				B6A2595F26069736008FC0A8 /* Assets.xcassets */,
 				B6A2596126069736008FC0A8 /* LaunchScreen.storyboard */,
 				B6A2596426069736008FC0A8 /* Info.plist */,
@@ -125,6 +150,15 @@
 			path = AppUITests;
 			sourceTree = "<group>";
 		};
+		B6A25A2126069EEC008FC0A8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B6A25A2226069EEC008FC0A8 /* AppNavigation.framework */,
+				B6A25A2326069EEC008FC0A8 /* DI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,12 +169,17 @@
 				B6A2594F26069733008FC0A8 /* Sources */,
 				B6A2595026069733008FC0A8 /* Frameworks */,
 				B6A2595126069733008FC0A8 /* Resources */,
+				B67FEA3826071DF600CA4EAC /* SwiftLint */,
+				B6A25A2826069EEC008FC0A8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = App;
+			packageProductDependencies = (
+				B61A8D442606D09200452BA4 /* MyLibrary */,
+			);
 			productName = App;
 			productReference = B6A2595326069733008FC0A8 /* App.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +251,8 @@
 				Base,
 			);
 			mainGroup = B6A2594A26069733008FC0A8;
+			packageReferences = (
+			);
 			productRefGroup = B6A2595426069733008FC0A8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -249,12 +290,32 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B67FEA3826071DF600CA4EAC /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B6A2594F26069733008FC0A8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A2595B26069733008FC0A8 /* ViewController.swift in Sources */,
 				B6A2595726069733008FC0A8 /* AppDelegate.swift in Sources */,
 				B6A2595926069733008FC0A8 /* SceneDelegate.swift in Sources */,
 			);
@@ -581,6 +642,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B61A8D442606D09200452BA4 /* MyLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MyLibrary;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6A2594B26069733008FC0A8 /* Project object */;
 }
