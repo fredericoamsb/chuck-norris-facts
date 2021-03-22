@@ -11,6 +11,10 @@ import SearchChuckNorrisFacts
 class ViewControllersFactoryAssembly: Assembly {
 
     func assemble(container: Container) {
+        container.register(FactsListFactoryProtocol.self) { resolver in
+            return FactsListFactory(resolver: resolver)
+        }
+
         container.register(SearchFactsFactoryProtocol.self) { resolver in
             return SearchFactsFactory(resolver: resolver)
         }

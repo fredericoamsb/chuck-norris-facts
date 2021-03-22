@@ -16,6 +16,7 @@
 		B61A8C562606A4DA00452BA4 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B61A8C552606A4DA00452BA4 /* MyLibrary */; };
 		B61A8CB82606AA0C00452BA4 /* SearchChuckNorrisFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8CB72606AA0C00452BA4 /* SearchChuckNorrisFacts.framework */; };
 		B61A8CB92606AA0C00452BA4 /* SearchChuckNorrisFacts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8CB72606AA0C00452BA4 /* SearchChuckNorrisFacts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B68AE231260807AC002664F0 /* FactsListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE230260807AC002664F0 /* FactsListFactory.swift */; };
 		B6A259A0260699BB008FC0A8 /* DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25996260699BB008FC0A8 /* DI.framework */; };
 		B6A259A5260699BB008FC0A8 /* DITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A259A4260699BB008FC0A8 /* DITests.swift */; };
 		B6A259A7260699BB008FC0A8 /* DI.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A25999260699BB008FC0A8 /* DI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -56,6 +57,7 @@
 		B605114326070AAE00768042 /* SearchFactsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFactory.swift; sourceTree = "<group>"; };
 		B605114626070AB700768042 /* ViewControllersFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactoryAssembly.swift; sourceTree = "<group>"; };
 		B61A8CB72606AA0C00452BA4 /* SearchChuckNorrisFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SearchChuckNorrisFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B68AE230260807AC002664F0 /* FactsListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListFactory.swift; sourceTree = "<group>"; };
 		B6A25996260699BB008FC0A8 /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A25999260699BB008FC0A8 /* DI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DI.h; sourceTree = "<group>"; };
 		B6A2599A260699BB008FC0A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				B605113B26070AA400768042 /* CoordinatorFactory.swift */,
+				B68AE230260807AC002664F0 /* FactsListFactory.swift */,
 				B605114326070AAE00768042 /* SearchFactsFactory.swift */,
 			);
 			path = Factories;
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B605113426070A5700768042 /* CoordinatorAssembly.swift in Sources */,
+				B68AE231260807AC002664F0 /* FactsListFactory.swift in Sources */,
 				B6F7EC862607C74E001A011C /* ResolverExtension.swift in Sources */,
 				B605114726070AB700768042 /* ViewControllersFactoryAssembly.swift in Sources */,
 				B6A259B3260699D2008FC0A8 /* DepedencyInjector.swift in Sources */,

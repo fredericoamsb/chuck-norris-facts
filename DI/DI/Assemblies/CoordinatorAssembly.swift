@@ -32,8 +32,10 @@ class CoordinatorAssembly: Assembly {
 
         //MARK: SearchFactsCoordinator
         container.register(SearchFactsCoordinator.self) { resolver in
+            let factsListFactory = resolver.resolveSafe(FactsListFactoryProtocol.self)
             let searchFactsFactory = resolver.resolveSafe(SearchFactsFactoryProtocol.self)
             let searchFactsCoordinator = SearchFactsCoordinator(navigationController: appCoordinator.navigationController,
+                                                                factsListFactory: factsListFactory,
                                                                 searchFactsFactory: searchFactsFactory)
             return searchFactsCoordinator
         }

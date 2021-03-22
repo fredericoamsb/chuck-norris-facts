@@ -12,15 +12,35 @@ public class SearchFactsCoordinator: Coordinator {
 
     var childCoordinators: [Coordinator] = []
     var navigationController: UINavigationController
+    private let factsListFactory: FactsListFactoryProtocol
     private let searchFactsFactory: SearchFactsFactoryProtocol
 
-    public init(navigationController: UINavigationController, searchFactsFactory: SearchFactsFactoryProtocol) {
+    public init(navigationController: UINavigationController,
+                factsListFactory: FactsListFactoryProtocol,
+                searchFactsFactory: SearchFactsFactoryProtocol) {
+
         self.navigationController = navigationController
+        self.factsListFactory = factsListFactory
         self.searchFactsFactory = searchFactsFactory
     }
 
     public func start() {
+        let factsListViewController = factsListFactory.makeFactsListViewController()
+        navigationController.pushViewController(factsListViewController, animated: true)
+    }
+}
+
+extension SearchFactsCoordinator: FactsListSceneCoordinating {    
+
+    public func showSearch() {
         let searchFactsViewController = searchFactsFactory.makeSearchFactsViewController()
-        navigationController.pushViewController(searchFactsViewController, animated: true)
+        navigationController.present(searchFactsViewController, animated: true)
+    }
+}
+
+extension SearchFactsCoordinator: SearchFactsSceneCoordinating {
+
+    public func backToList() {
+        navigationController.dismiss(animated: true)
     }
 }

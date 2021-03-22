@@ -27,5 +27,4 @@ public class DependencyInjector {
         let appCoordinator = assembler.resolver.resolveSafe(AppCoordinator.self)
         completion(appCoordinator)
     }
-
 }

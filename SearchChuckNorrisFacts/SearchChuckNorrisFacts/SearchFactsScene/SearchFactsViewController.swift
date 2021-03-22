@@ -21,16 +21,14 @@ public final class SearchFactsViewController: UISearchContainerViewController {
 
         let searchController = UISearchController()
         searchController.searchBar.showsCancelButton = true
-
         let searchBar = searchController.searchBar
-        searchBar.sizeToFit()
         searchBar.placeholder = "Search for facts"
-
         searchController.hidesNavigationBarDuringPresentation = false
 
         super.init(searchController: searchController)
 
         navigationItem.titleView = searchBar
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
 
     required init?(coder: NSCoder) {
