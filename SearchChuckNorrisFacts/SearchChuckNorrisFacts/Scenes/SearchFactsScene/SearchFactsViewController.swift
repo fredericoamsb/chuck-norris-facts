@@ -22,7 +22,7 @@ public final class SearchFactsViewController: UISearchContainerViewController {
         let searchController = UISearchController()
         searchController.searchBar.showsCancelButton = true
         let searchBar = searchController.searchBar
-        searchBar.placeholder = "Search for facts"
+        searchBar.placeholder = L10n.SearchFacts.SearchBar.placeholder
         searchController.hidesNavigationBarDuringPresentation = false
 
         super.init(searchController: searchController)

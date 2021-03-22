@@ -18,7 +18,7 @@ final class SearchFactsView: UIView {
     lazy var headerView: UILabel = ({
         let view = UILabel()
         view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        view.text = "Find a random fact by category:"
+        view.text = L10n.SearchFacts.Label.header
         view.textColor = .systemBlue
         view.backgroundColor = .systemBackground
         view.textAlignment = .center

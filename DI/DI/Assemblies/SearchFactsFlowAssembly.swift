@@ -14,13 +14,13 @@ class SearchFactsFlowAssembly: Assembly {
     func assemble(container: Container) {
         let searchFactsCoordinator = container.resolveSafe(SearchFactsCoordinator.self)
 
-        //MARK: FactsListScene
+        // MARK: FactsListScene
         container.register(FactsListSceneCoordinating.self) { _ in searchFactsCoordinator }
         container.register(FactsListViewModelable.self, factory: {(_: Resolver) in
             return FactsListViewModel(coordinator: searchFactsCoordinator)
         })
 
-        //MARK: SearchFactsScene
+        // MARK: SearchFactsScene
         container.register(SearchFactsSceneCoordinating.self) { _ in searchFactsCoordinator }
         container.register(SearchFactsViewModelable.self, factory: {(_: Resolver) in
             return SearchFactsViewModel(coordinator: searchFactsCoordinator)

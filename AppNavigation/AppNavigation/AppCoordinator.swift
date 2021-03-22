@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import Swinject
 import SearchChuckNorrisFacts
 
 protocol Coordinator {

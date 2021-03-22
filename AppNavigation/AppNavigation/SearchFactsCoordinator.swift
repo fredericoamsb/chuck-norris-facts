@@ -30,7 +30,7 @@ public class SearchFactsCoordinator: Coordinator {
     }
 }
 
-extension SearchFactsCoordinator: FactsListSceneCoordinating {    
+extension SearchFactsCoordinator: FactsListSceneCoordinating {
 
     public func showSearch() {
         let searchFactsViewController = searchFactsFactory.makeSearchFactsViewController()

@@ -3,12 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B61A8D452606D09200452BA4 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B61A8D442606D09200452BA4 /* MyLibrary */; };
-		B61A8D462606D09200452BA4 /* MyLibrary in Embed Frameworks */ = {isa = PBXBuildFile; productRef = B61A8D442606D09200452BA4 /* MyLibrary */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		B6A2595726069733008FC0A8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2595626069733008FC0A8 /* AppDelegate.swift */; };
 		B6A2595926069733008FC0A8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A2595826069733008FC0A8 /* SceneDelegate.swift */; };
 		B6A2596026069736008FC0A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6A2595F26069736008FC0A8 /* Assets.xcassets */; };
@@ -45,7 +43,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B61A8D462606D09200452BA4 /* MyLibrary in Embed Frameworks */,
 				B6A25A2526069EEC008FC0A8 /* AppNavigation.framework in Embed Frameworks */,
 				B6A25A2726069EEC008FC0A8 /* DI.framework in Embed Frameworks */,
 			);
@@ -76,7 +73,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61A8D452606D09200452BA4 /* MyLibrary in Frameworks */,
 				B6A25A2426069EEC008FC0A8 /* AppNavigation.framework in Frameworks */,
 				B6A25A2626069EEC008FC0A8 /* DI.framework in Frameworks */,
 			);
@@ -166,6 +162,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B6A2597D26069736008FC0A8 /* Build configuration list for PBXNativeTarget "App" */;
 			buildPhases = (
+				B6282C4C260847BD008C45E3 /* SwiftGen */,
 				B6A2594F26069733008FC0A8 /* Sources */,
 				B6A2595026069733008FC0A8 /* Frameworks */,
 				B6A2595126069733008FC0A8 /* Resources */,
@@ -178,7 +175,6 @@
 			);
 			name = App;
 			packageProductDependencies = (
-				B61A8D442606D09200452BA4 /* MyLibrary */,
 			);
 			productName = App;
 			productReference = B6A2595326069733008FC0A8 /* App.app */;
@@ -291,6 +287,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B6282C4C260847BD008C45E3 /* SwiftGen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftGen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftgen >/dev/null; then\n  cd ..\n  swiftgen\nelse\n  echo \"warning: SwiftGen not installed, download it from https://github.com/SwiftGen/SwiftGen\"\nfi\n";
+		};
 		B67FEA3826071DF600CA4EAC /* SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -307,7 +321,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			shellScript = "if which swiftlint >/dev/null; then\n  cd ..\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -642,13 +656,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B61A8D442606D09200452BA4 /* MyLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MyLibrary;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6A2594B26069733008FC0A8 /* Project object */;
 }

@@ -22,15 +22,15 @@ class CoordinatorAssembly: Assembly {
 
         let coordinatorFactory = container.resolveSafe(CoordinatorFactoryProtocol.self)
 
-        //MARK: AppCoordinator
-        container.register(AppCoordinator.self) { resolver in
+        // MARK: AppCoordinator
+        container.register(AppCoordinator.self) { _ in
             let appCoordinator = AppCoordinator(navigationController: self.navigationController, coordinatorFactory: coordinatorFactory)
             return appCoordinator
         }
 
         let appCoordinator = container.resolveSafe(AppCoordinator.self)
 
-        //MARK: SearchFactsCoordinator
+        // MARK: SearchFactsCoordinator
         container.register(SearchFactsCoordinator.self) { resolver in
             let factsListFactory = resolver.resolveSafe(FactsListFactoryProtocol.self)
             let searchFactsFactory = resolver.resolveSafe(SearchFactsFactoryProtocol.self)

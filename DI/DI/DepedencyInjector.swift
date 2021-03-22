@@ -17,7 +17,7 @@ public class DependencyInjector {
         self.navigationController = navigationController
     }
 
-    public func build(completion: (_ appCoordinator: AppCoordinator) -> ()) {
+    public func build(completion: (_ appCoordinator: AppCoordinator) -> Void) {
         let assembler = Assembler([
             CoordinatorFactoryAssembly(),
             CoordinatorAssembly(navigationController: self.navigationController),

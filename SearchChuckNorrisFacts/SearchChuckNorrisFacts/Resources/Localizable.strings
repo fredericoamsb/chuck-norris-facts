@@ -1,0 +1,10 @@
+//
+//  Localizable.strings
+//  SearchChuckNorrisFacts
+//
+//  Created by Frederico Augusto on 22/03/21.
+//
+
+"FactsList.title" = "CHUCK NORRIS FACTS";
+"SearchFacts.Label.header" = "Find a random fact by category:";
+"SearchFacts.SearchBar.placeholder" = "Search for facts";
