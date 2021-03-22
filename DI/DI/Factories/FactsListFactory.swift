@@ -8,13 +8,7 @@
 import Swinject
 import SearchChuckNorrisFacts
 
-class FactsListFactory: FactsListFactoryProtocol {
-
-    private let resolver: Resolver
-
-    init(resolver: Resolver) {
-        self.resolver = resolver
-    }
+class FactsListFactory: BaseFactory, FactsListFactoryProtocol {
 
     func makeFactsListViewController() -> FactsListViewController {
         let viewModel = resolver.resolveSafe(FactsListViewModelable.self)

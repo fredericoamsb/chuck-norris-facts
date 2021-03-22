@@ -8,13 +8,7 @@
 import Swinject
 import AppNavigation
 
-class CoordinatorFactory: CoordinatorFactoryProtocol {
-
-    private let resolver: Resolver
-
-    init(resolver: Resolver) {
-        self.resolver = resolver
-    }
+class CoordinatorFactory: BaseFactory, CoordinatorFactoryProtocol {
 
     func makeSearchFactsCoordinator() -> SearchFactsCoordinator {
         let coordinator = resolver.resolveSafe(SearchFactsCoordinator.self)
