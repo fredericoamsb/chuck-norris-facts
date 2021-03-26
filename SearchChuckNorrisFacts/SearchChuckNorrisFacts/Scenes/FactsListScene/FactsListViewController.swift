@@ -6,10 +6,12 @@
 //
 
 import UIKit
-import RxSwift
+ import RxSwift
+ import RxCocoa
 
 public protocol FactsListViewModelable {
 
+    var facts: BehaviorRelay<[FactViewModel]> { get }
     func showSearch()
 }
 
@@ -17,6 +19,7 @@ public final class FactsListViewController: UIViewController {
 
     private let viewModel: FactsListViewModelable
     private let factsListTableView = FactsListTableView()
+    private let disposeBag = DisposeBag()
 
     public init(viewModel: FactsListViewModelable) {
         self.viewModel = viewModel
@@ -40,7 +43,18 @@ public final class FactsListViewController: UIViewController {
         let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = searchButton
 
-//        factsListTableView.rx.
+        setupFactsListTableView()
+    }
+
+    private func setupFactsListTableView() {
+        let cellIdentifier = "factListCell"
+        factsListTableView.delegate = nil
+        factsListTableView.dataSource = nil
+        factsListTableView.register(FactListCell.self, forCellReuseIdentifier: cellIdentifier)
+
+        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) {_, item, cell in
+            cell.set(description: item.description)
+        }.disposed(by: disposeBag)
     }
 
     @objc private func addTapped() {

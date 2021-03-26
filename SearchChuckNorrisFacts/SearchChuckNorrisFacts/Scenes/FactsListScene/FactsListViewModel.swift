@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 public protocol FactsListSceneCoordinating {
 
@@ -15,6 +17,8 @@ public protocol FactsListSceneCoordinating {
 public final class FactsListViewModel: FactsListViewModelable {
 
     public let coodinator: FactsListSceneCoordinating
+    public var facts = BehaviorRelay(value: [FactViewModel(description: "Teste 1"),
+                                             FactViewModel(description: "Teste 2")])
 
     public init(coordinator: FactsListSceneCoordinating) {
 

@@ -9,15 +9,19 @@ import UIKit
 
 final class FactListCell: UITableViewCell {
 
-//    lazy var description: UILabel = ({
-//        let label = UILabel()
-//        label.text = "AERGIONA ERGIN AERIGN AERG AERGI UNAERG AIUERG naierug naierugn eiarugn aerg"
-//        return label
-//    })()
+   lazy var info: UILabel = ({
+       let label = UILabel()
+       label.text = "Description here"
+       return label
+   })()
 
-//    lazy var categoty: UILabel = ({
-//        let label = UILabel()
-//        label.text = "UNCATEGORIZED"
-//        return label
-//    })()
+   lazy var categoty: UILabel = ({
+       let label = UILabel()
+       label.text = "UNCATEGORIZED"
+       return label
+   })()
+
+    func set(description: String) {
+        textLabel?.text = description
+    }
 }
