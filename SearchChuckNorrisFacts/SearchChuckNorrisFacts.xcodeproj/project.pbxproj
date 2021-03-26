@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,7 +12,6 @@
 		B61A8C9A2606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8C992606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift */; };
 		B61A8C9C2606A93C00452BA4 /* SearchChuckNorrisFacts.h in Headers */ = {isa = PBXBuildFile; fileRef = B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8CB12606A9AB00452BA4 /* SearchFactsViewController.swift */; };
-		B6282C2926083DD8008C45E3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B6282C2826083DD8008C45E3 /* MyLibrary */; };
 		B6282C5726084A7C008C45E3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = B6282C5626084A7C008C45E3 /* Localizable.strings */; };
 		B62AD9D126084EFB00A45566 /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62AD9D026084EFB00A45566 /* Strings.swift */; };
 		B67FEA2926071C2100CA4EAC /* SearchFactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */; };
@@ -72,7 +71,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6282C2926083DD8008C45E3 /* MyLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,7 +210,6 @@
 			);
 			name = SearchChuckNorrisFacts;
 			packageProductDependencies = (
-				B6282C2826083DD8008C45E3 /* MyLibrary */,
 			);
 			productName = SearchChuckNorrisFacts;
 			productReference = B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */;
@@ -570,13 +567,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B6282C2826083DD8008C45E3 /* MyLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MyLibrary;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B61A8C822606A93C00452BA4 /* Project object */;
 }

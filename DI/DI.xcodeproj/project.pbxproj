@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,6 @@
 		B605114726070AB700768042 /* ViewControllersFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B605114626070AB700768042 /* ViewControllersFactoryAssembly.swift */; };
 		B61A8CB82606AA0C00452BA4 /* SearchChuckNorrisFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8CB72606AA0C00452BA4 /* SearchChuckNorrisFacts.framework */; };
 		B61A8CB92606AA0C00452BA4 /* SearchChuckNorrisFacts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8CB72606AA0C00452BA4 /* SearchChuckNorrisFacts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6282C2626083CAF008C45E3 /* MyLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = B6282C2526083CAF008C45E3 /* MyLibrary */; };
 		B68AE231260807AC002664F0 /* FactsListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE230260807AC002664F0 /* FactsListFactory.swift */; };
 		B68AE2512608136A002664F0 /* BaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE2502608136A002664F0 /* BaseFactory.swift */; };
 		B6A259A0260699BB008FC0A8 /* DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A25996260699BB008FC0A8 /* DI.framework */; };
@@ -78,7 +77,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6282C2626083CAF008C45E3 /* MyLibrary in Frameworks */,
 				B6CD0C6B26082B8D006A5B54 /* AppNavigation.framework in Frameworks */,
 				B61A8CB82606AA0C00452BA4 /* SearchChuckNorrisFacts.framework in Frameworks */,
 			);
@@ -197,7 +195,6 @@
 			);
 			name = DI;
 			packageProductDependencies = (
-				B6282C2526083CAF008C45E3 /* MyLibrary */,
 			);
 			productName = DI;
 			productReference = B6A25996260699BB008FC0A8 /* DI.framework */;
@@ -556,13 +553,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		B6282C2526083CAF008C45E3 /* MyLibrary */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = MyLibrary;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B6A2598D260699BB008FC0A8 /* Project object */;
 }
