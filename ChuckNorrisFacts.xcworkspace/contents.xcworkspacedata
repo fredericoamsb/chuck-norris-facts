@@ -10,7 +10,20 @@
    <FileRef
       location = "group:AppNavigation/AppNavigation.xcodeproj">
    </FileRef>
+   <Group
+      location = "container:"
+      name = "Features">
+      <FileRef
+         location = "group:SearchChuckNorrisFacts/SearchChuckNorrisFacts.xcodeproj">
+      </FileRef>
+   </Group>
    <FileRef
-      location = "group:SearchChuckNorrisFacts/SearchChuckNorrisFacts.xcodeproj">
+      location = "group:Domain/Domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Networking/Networking.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>

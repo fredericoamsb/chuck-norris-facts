@@ -20,6 +20,7 @@
 		B68AE22026080326002664F0 /* FactsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE21F26080326002664F0 /* FactsListTableView.swift */; };
 		B68AE22626080575002664F0 /* FactsListFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE22526080575002664F0 /* FactsListFactoryProtocol.swift */; };
 		B68AE2B426082597002664F0 /* FactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE2B326082597002664F0 /* FactListCell.swift */; };
+		B6B6B089260D6FB20071B480 /* FactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B6B088260D6FB20071B480 /* FactViewModel.swift */; };
 		B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F7EC7F2607A7C5001A011C /* SearchFactsView.swift */; };
 /* End PBXBuildFile section */
 
@@ -32,19 +33,6 @@
 			remoteInfo = SearchChuckNorrisFacts;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B68AE2BD26082721002664F0 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		B6051168260714D300768042 /* SearchFactsFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFactoryProtocol.swift; sourceTree = "<group>"; };
@@ -63,6 +51,7 @@
 		B68AE21F26080326002664F0 /* FactsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListTableView.swift; sourceTree = "<group>"; };
 		B68AE22526080575002664F0 /* FactsListFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListFactoryProtocol.swift; sourceTree = "<group>"; };
 		B68AE2B326082597002664F0 /* FactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListCell.swift; sourceTree = "<group>"; };
+		B6B6B088260D6FB20071B480 /* FactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactViewModel.swift; sourceTree = "<group>"; };
 		B6F7EC7F2607A7C5001A011C /* SearchFactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -164,6 +153,7 @@
 		B68AE21426080286002664F0 /* FactsListScene */ = {
 			isa = PBXGroup;
 			children = (
+				B6B6B088260D6FB20071B480 /* FactViewModel.swift */,
 				B68AE2B326082597002664F0 /* FactListCell.swift */,
 				B68AE21F26080326002664F0 /* FactsListTableView.swift */,
 				B68AE215260802E6002664F0 /* FactsListViewController.swift */,
@@ -198,19 +188,17 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B61A8C9F2606A93C00452BA4 /* Build configuration list for PBXNativeTarget "SearchChuckNorrisFacts" */;
 			buildPhases = (
+				A753FCEBCBDC6EE9F330EF2B /* [CP] Check Pods Manifest.lock */,
 				B61A8C862606A93C00452BA4 /* Headers */,
 				B61A8C872606A93C00452BA4 /* Sources */,
 				B61A8C882606A93C00452BA4 /* Frameworks */,
 				B61A8C892606A93C00452BA4 /* Resources */,
-				B68AE2BD26082721002664F0 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SearchChuckNorrisFacts;
-			packageProductDependencies = (
-			);
 			productName = SearchChuckNorrisFacts;
 			productReference = B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */;
 			productType = "com.apple.product-type.framework";
@@ -301,6 +289,7 @@
 				B6051169260714D300768042 /* SearchFactsFactoryProtocol.swift in Sources */,
 				B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */,
 				B68AE22026080326002664F0 /* FactsListTableView.swift in Sources */,
+				B6B6B089260D6FB20071B480 /* FactViewModel.swift in Sources */,
 				B68AE216260802E6002664F0 /* FactsListViewController.swift in Sources */,
 				B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */,
 			);
@@ -467,6 +456,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Fred.SearchChuckNorrisFacts;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -493,6 +483,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Fred.SearchChuckNorrisFacts;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
