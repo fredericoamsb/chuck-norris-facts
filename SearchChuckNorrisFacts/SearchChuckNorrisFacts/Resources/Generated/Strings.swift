@@ -11,6 +11,13 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
+  internal enum FactCell {
+    internal enum Category {
+      /// UNCATEGORIZED
+      internal static let uncategorized = L10n.tr("Localizable", "FactCell.category.uncategorized")
+    }
+  }
+
   internal enum FactsList {
     /// CHUCK NORRIS FACTS
     internal static let title = L10n.tr("Localizable", "FactsList.title")

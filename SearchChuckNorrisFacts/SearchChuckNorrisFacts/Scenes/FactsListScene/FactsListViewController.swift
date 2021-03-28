@@ -11,14 +11,15 @@ import UIKit
 
 public protocol FactsListViewModelable {
 
-    var facts: BehaviorRelay<[FactViewModel]> { get }
+    var facts: BehaviorSubject<[FactViewModel]> { get }
     func showSearch()
 }
 
 public final class FactsListViewController: UIViewController {
 
+    // MARK: Instances
     private let viewModel: FactsListViewModelable
-    private let factsListTableView = FactsListTableView()
+    private let factsListTableView = UITableView()
     private let disposeBag = DisposeBag()
 
     public init(viewModel: FactsListViewModelable) {
@@ -50,10 +51,12 @@ public final class FactsListViewController: UIViewController {
         let cellIdentifier = "factListCell"
         factsListTableView.delegate = nil
         factsListTableView.dataSource = nil
+        factsListTableView.separatorStyle = .none
+        factsListTableView.bounces = false
         factsListTableView.register(FactListCell.self, forCellReuseIdentifier: cellIdentifier)
 
         viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) {_, item, cell in
-            cell.set(description: item.description)
+            cell.set(description: item.description, category: item.category)
         }.disposed(by: disposeBag)
     }
 

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		025CF7B84A9AC45E4DD30DFF /* Pods_SearchChuckNorrisFacts_SearchChuckNorrisFactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A43BD2502EC6EFF142778801 /* Pods_SearchChuckNorrisFacts_SearchChuckNorrisFactsTests.framework */; };
 		B6051169260714D300768042 /* SearchFactsFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6051168260714D300768042 /* SearchFactsFactoryProtocol.swift */; };
+		B60C700F26101E0900EB2AEE /* FactListCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C700E26101E0900EB2AEE /* FactListCellTests.swift */; };
+		B60C7033261033E900EB2AEE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; };
+		B60C7034261033E900EB2AEE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B60C70392610342400EB2AEE /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70382610342400EB2AEE /* UIView.swift */; };
 		B61A8C952606A93C00452BA4 /* SearchChuckNorrisFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */; };
 		B61A8C9A2606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8C992606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift */; };
 		B61A8C9C2606A93C00452BA4 /* SearchChuckNorrisFacts.h in Headers */ = {isa = PBXBuildFile; fileRef = B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -18,7 +22,6 @@
 		B67FEA2926071C2100CA4EAC /* SearchFactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */; };
 		B68AE216260802E6002664F0 /* FactsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE215260802E6002664F0 /* FactsListViewController.swift */; };
 		B68AE21C26080307002664F0 /* FactsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE21B26080307002664F0 /* FactsListViewModel.swift */; };
-		B68AE22026080326002664F0 /* FactsListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE21F26080326002664F0 /* FactsListTableView.swift */; };
 		B68AE22626080575002664F0 /* FactsListFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE22526080575002664F0 /* FactsListFactoryProtocol.swift */; };
 		B68AE2B426082597002664F0 /* FactListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B68AE2B326082597002664F0 /* FactListCell.swift */; };
 		B6B2D0E8260D8A6A00AE7F31 /* Pods_SearchChuckNorrisFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE17C1EA4A86B6A3C4A28F1 /* Pods_SearchChuckNorrisFacts.framework */; };
@@ -36,6 +39,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B60C7035261033E900EB2AEE /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B60C7034261033E900EB2AEE /* Domain.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		6086DB8CC771828A5637BDFF /* Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig"; path = "Target Support Files/Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests/Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig"; sourceTree = "<group>"; };
 		7B6332B20E85FDB8747F038F /* Pods-SearchChuckNorrisFacts.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchChuckNorrisFacts.release.xcconfig"; path = "Target Support Files/Pods-SearchChuckNorrisFacts/Pods-SearchChuckNorrisFacts.release.xcconfig"; sourceTree = "<group>"; };
@@ -44,6 +61,9 @@
 		A43BD2502EC6EFF142778801 /* Pods_SearchChuckNorrisFacts_SearchChuckNorrisFactsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SearchChuckNorrisFacts_SearchChuckNorrisFactsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B31AA2F176B816072E9D0266 /* Pods-SearchChuckNorrisFacts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchChuckNorrisFacts.debug.xcconfig"; path = "Target Support Files/Pods-SearchChuckNorrisFacts/Pods-SearchChuckNorrisFacts.debug.xcconfig"; sourceTree = "<group>"; };
 		B6051168260714D300768042 /* SearchFactsFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFactoryProtocol.swift; sourceTree = "<group>"; };
+		B60C700E26101E0900EB2AEE /* FactListCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListCellTests.swift; sourceTree = "<group>"; };
+		B60C7032261033E900EB2AEE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60C70382610342400EB2AEE /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SearchChuckNorrisFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchChuckNorrisFacts.h; sourceTree = "<group>"; };
 		B61A8C8F2606A93C00452BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,7 +76,6 @@
 		B67FEA2826071C2100CA4EAC /* SearchFactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsViewModel.swift; sourceTree = "<group>"; };
 		B68AE215260802E6002664F0 /* FactsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListViewController.swift; sourceTree = "<group>"; };
 		B68AE21B26080307002664F0 /* FactsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListViewModel.swift; sourceTree = "<group>"; };
-		B68AE21F26080326002664F0 /* FactsListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListTableView.swift; sourceTree = "<group>"; };
 		B68AE22526080575002664F0 /* FactsListFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListFactoryProtocol.swift; sourceTree = "<group>"; };
 		B68AE2B326082597002664F0 /* FactListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListCell.swift; sourceTree = "<group>"; };
 		B6B6B088260D6FB20071B480 /* FactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactViewModel.swift; sourceTree = "<group>"; };
@@ -68,6 +87,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B60C7033261033E900EB2AEE /* Domain.framework in Frameworks */,
 				B6B2D0E8260D8A6A00AE7F31 /* Pods_SearchChuckNorrisFacts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +116,14 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		B60C70372610340B00EB2AEE /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B60C70382610342400EB2AEE /* UIView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		B61A8C812606A93C00452BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +148,7 @@
 			isa = PBXGroup;
 			children = (
 				B6282C5426084A54008C45E3 /* Scenes */,
+				B60C70372610340B00EB2AEE /* Extensions */,
 				B6282C5526084A5F008C45E3 /* Resources */,
 				B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */,
 				B61A8C8F2606A93C00452BA4 /* Info.plist */,
@@ -131,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				B61A8C992606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift */,
+				B60C700E26101E0900EB2AEE /* FactListCellTests.swift */,
 				B61A8C9B2606A93C00452BA4 /* Info.plist */,
 			);
 			path = SearchChuckNorrisFactsTests;
@@ -178,7 +208,6 @@
 			children = (
 				B6B6B088260D6FB20071B480 /* FactViewModel.swift */,
 				B68AE2B326082597002664F0 /* FactListCell.swift */,
-				B68AE21F26080326002664F0 /* FactsListTableView.swift */,
 				B68AE215260802E6002664F0 /* FactsListViewController.swift */,
 				B68AE21B26080307002664F0 /* FactsListViewModel.swift */,
 				B68AE22526080575002664F0 /* FactsListFactoryProtocol.swift */,
@@ -189,6 +218,7 @@
 		B68AE2B926082721002664F0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B60C7032261033E900EB2AEE /* Domain.framework */,
 				9BE17C1EA4A86B6A3C4A28F1 /* Pods_SearchChuckNorrisFacts.framework */,
 				A43BD2502EC6EFF142778801 /* Pods_SearchChuckNorrisFacts_SearchChuckNorrisFactsTests.framework */,
 			);
@@ -218,6 +248,7 @@
 				B61A8C872606A93C00452BA4 /* Sources */,
 				B61A8C882606A93C00452BA4 /* Frameworks */,
 				B61A8C892606A93C00452BA4 /* Resources */,
+				B60C7035261033E900EB2AEE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -374,12 +405,12 @@
 			files = (
 				B68AE22626080575002664F0 /* FactsListFactoryProtocol.swift in Sources */,
 				B68AE2B426082597002664F0 /* FactListCell.swift in Sources */,
+				B60C70392610342400EB2AEE /* UIView.swift in Sources */,
 				B62AD9D126084EFB00A45566 /* Strings.swift in Sources */,
 				B68AE21C26080307002664F0 /* FactsListViewModel.swift in Sources */,
 				B67FEA2926071C2100CA4EAC /* SearchFactsViewModel.swift in Sources */,
 				B6051169260714D300768042 /* SearchFactsFactoryProtocol.swift in Sources */,
 				B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */,
-				B68AE22026080326002664F0 /* FactsListTableView.swift in Sources */,
 				B6B6B089260D6FB20071B480 /* FactViewModel.swift in Sources */,
 				B68AE216260802E6002664F0 /* FactsListViewController.swift in Sources */,
 				B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */,
@@ -391,6 +422,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61A8C9A2606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift in Sources */,
+				B60C700F26101E0900EB2AEE /* FactListCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
