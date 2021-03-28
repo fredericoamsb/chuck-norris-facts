@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 import SearchChuckNorrisFacts
 
 public class SearchFactsCoordinator: Coordinator {
@@ -32,9 +33,12 @@ public class SearchFactsCoordinator: Coordinator {
 
 extension SearchFactsCoordinator: FactsListSceneCoordinating {
 
-    public func showSearch() {
+    public func showSearch(query: BehaviorSubject<String>) {
         let searchFactsViewController = searchFactsFactory.makeSearchFactsViewController()
-        navigationController.present(searchFactsViewController, animated: true)
+        searchFactsViewController.viewModel.searchQuery = query
+
+        let searchFactsNavigationController = UINavigationController(rootViewController: searchFactsViewController)
+        navigationController.present(searchFactsNavigationController, animated: true)
     }
 }
 

@@ -6,8 +6,7 @@
 //
 
 import UIKit
- import RxSwift
- import RxCocoa
+import RxSwift
 
 public protocol FactsListViewModelable {
 

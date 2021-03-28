@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		B6051153260712D700768042 /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6051152260712D700768042 /* CoordinatorFactoryProtocol.swift */; };
-		B61A8CF02606BAA700452BA4 /* SearchFactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8CEF2606BAA700452BA4 /* SearchFactsCoordinator.swift */; };
 		B6A259FD26069CD0008FC0A8 /* AppNavigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A259F326069CD0008FC0A8 /* AppNavigation.framework */; };
 		B6A25A0226069CD0008FC0A8 /* AppNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A25A0126069CD0008FC0A8 /* AppNavigationTests.swift */; };
 		B6A25A0426069CD0008FC0A8 /* AppNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A259F626069CD0008FC0A8 /* AppNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,7 +28,6 @@
 /* Begin PBXFileReference section */
 		B6051152260712D700768042 /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
 		B605118D2607167400768042 /* SearchChuckNorrisFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SearchChuckNorrisFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B61A8CEF2606BAA700452BA4 /* SearchFactsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsCoordinator.swift; sourceTree = "<group>"; };
 		B61A8D0E2606C7C500452BA4 /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A259F326069CD0008FC0A8 /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A259F626069CD0008FC0A8 /* AppNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppNavigation.h; sourceTree = "<group>"; };
@@ -86,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				B6A25A1126069CED008FC0A8 /* AppCoordinator.swift */,
-				B61A8CEF2606BAA700452BA4 /* SearchFactsCoordinator.swift */,
 				B6051152260712D700768042 /* CoordinatorFactoryProtocol.swift */,
 				B6A259F626069CD0008FC0A8 /* AppNavigation.h */,
 				B6A259F726069CD0008FC0A8 /* Info.plist */,
@@ -228,7 +225,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B61A8CF02606BAA700452BA4 /* SearchFactsCoordinator.swift in Sources */,
 				B6051153260712D700768042 /* CoordinatorFactoryProtocol.swift in Sources */,
 				B6A25A1226069CED008FC0A8 /* AppCoordinator.swift in Sources */,
 			);

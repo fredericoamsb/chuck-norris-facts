@@ -39,11 +39,7 @@ final class SearchFactsView: UIView {
 
     private func setupUI() {
         addSubview(stackView)
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.topAnchor.constraint(equalTo: topAnchor, constant: 55).isActive = true
-        stackView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        stackView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        stackView.fillSuperview(padding: UIEdgeInsets(top: 55, left: 0, bottom: 0, right: 0))
         stackView.addArrangedSubview(headerView)
         stackView.addArrangedSubview(categoriesTableView)
     }

@@ -13,6 +13,8 @@
 		B60C7033261033E900EB2AEE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; };
 		B60C7034261033E900EB2AEE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60C70392610342400EB2AEE /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70382610342400EB2AEE /* UIView.swift */; };
+		B60C70962610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */; };
+		B60C70972610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */; };
 		B61A8C952606A93C00452BA4 /* SearchChuckNorrisFacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */; };
 		B61A8C9A2606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B61A8C992606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift */; };
 		B61A8C9C2606A93C00452BA4 /* SearchChuckNorrisFacts.h in Headers */ = {isa = PBXBuildFile; fileRef = B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -64,6 +66,7 @@
 		B60C700E26101E0900EB2AEE /* FactListCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactListCellTests.swift; sourceTree = "<group>"; };
 		B60C7032261033E900EB2AEE /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B60C70382610342400EB2AEE /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchFactsCoordinator.swift; sourceTree = "<group>"; };
 		B61A8C8B2606A93C00452BA4 /* SearchChuckNorrisFacts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SearchChuckNorrisFacts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchChuckNorrisFacts.h; sourceTree = "<group>"; };
 		B61A8C8F2606A93C00452BA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -124,6 +127,14 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		B60C70942610855A00EB2AEE /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
 		B61A8C812606A93C00452BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				B6282C5426084A54008C45E3 /* Scenes */,
+				B60C70942610855A00EB2AEE /* Coordinators */,
 				B60C70372610340B00EB2AEE /* Extensions */,
 				B6282C5526084A5F008C45E3 /* Resources */,
 				B61A8C8E2606A93C00452BA4 /* SearchChuckNorrisFacts.h */,
@@ -413,6 +425,7 @@
 				B6F7EC802607A7C5001A011C /* SearchFactsView.swift in Sources */,
 				B6B6B089260D6FB20071B480 /* FactViewModel.swift in Sources */,
 				B68AE216260802E6002664F0 /* FactsListViewController.swift in Sources */,
+				B60C70962610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */,
 				B61A8CB22606A9AB00452BA4 /* SearchFactsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +435,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B61A8C9A2606A93C00452BA4 /* SearchChuckNorrisFactsTests.swift in Sources */,
+				B60C70972610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */,
 				B60C700F26101E0900EB2AEE /* FactListCellTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

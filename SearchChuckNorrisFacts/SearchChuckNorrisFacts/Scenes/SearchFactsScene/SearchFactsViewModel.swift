@@ -19,7 +19,11 @@ public final class SearchFactsViewModel: SearchFactsViewModelable {
         self.coordinator = coordinator
     }
 
-    public func searchFact() {
+    public func backToList() {
         coordinator.backToList()
+    }
+
+    public func searchFact(query: String) {
+        backToList()
     }
 }
