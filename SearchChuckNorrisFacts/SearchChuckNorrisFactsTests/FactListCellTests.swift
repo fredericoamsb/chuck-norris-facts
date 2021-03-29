@@ -24,7 +24,7 @@ class FactListCellTests: XCTestCase {
 
         sut.set(description: string, category: "category")
 
-        XCTAssert(string.count <= 80)
+        XCTAssertLessThanOrEqual(string.count, 80)
         XCTAssert(sut.infoLabel.font == UIFont.preferredFont(forTextStyle: .title1))
     }
 
@@ -34,8 +34,8 @@ class FactListCellTests: XCTestCase {
 
         sut.set(description: string, category: "category")
 
-        XCTAssert(string.count > 80)
-        XCTAssert(sut.infoLabel.font == UIFont.preferredFont(forTextStyle: .title2))
+        XCTAssertGreaterThan(string.count, 80)
+        XCTAssertEqual(sut.infoLabel.font, UIFont.preferredFont(forTextStyle: .title2))
     }
 
     func test_FactListCell_CategoryShouldBeUncategorized() {
@@ -43,6 +43,6 @@ class FactListCellTests: XCTestCase {
 
         sut.set(description: "", category: nil)
 
-        XCTAssert(sut.categotyLabel.text == "UNCATEGORIZED")
+        XCTAssertEqual(sut.categotyLabel.text, "UNCATEGORIZED")
     }
 }

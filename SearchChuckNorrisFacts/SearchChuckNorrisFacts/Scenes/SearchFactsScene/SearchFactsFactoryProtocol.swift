@@ -7,5 +7,5 @@
 
 public protocol SearchFactsFactoryProtocol {
 
-    func makeSearchFactsViewController() -> SearchFactsViewController
+    func makeSearchFactsViewController() -> (SearchFactsViewController, SearchFactsViewModelable)
 }

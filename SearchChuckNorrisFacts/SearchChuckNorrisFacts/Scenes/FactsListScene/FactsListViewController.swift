@@ -7,19 +7,19 @@
 
 import UIKit
 import RxSwift
-
-public protocol FactsListViewModelable {
-
-    var facts: BehaviorSubject<[FactViewModel]> { get }
-    func showSearch()
-}
+import RxCocoa
 
 public final class FactsListViewController: UIViewController {
 
     // MARK: Instances
-    private let viewModel: FactsListViewModelable
+    public let viewModel: FactsListViewModelable
     private let factsListTableView = UITableView()
+    private let cellIdentifier = "factListCell"
     private let disposeBag = DisposeBag()
+
+    private lazy var searchButton = ({
+        return UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+    })()
 
     public init(viewModel: FactsListViewModelable) {
         self.viewModel = viewModel
@@ -40,26 +40,29 @@ public final class FactsListViewController: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = L10n.FactsList.title
-        let searchButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(addTapped))
         navigationItem.rightBarButtonItem = searchButton
 
         setupFactsListTableView()
+        setupBindings()
     }
 
     private func setupFactsListTableView() {
-        let cellIdentifier = "factListCell"
-        factsListTableView.delegate = nil
-        factsListTableView.dataSource = nil
         factsListTableView.separatorStyle = .none
         factsListTableView.bounces = false
         factsListTableView.register(FactListCell.self, forCellReuseIdentifier: cellIdentifier)
-
-        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) {_, item, cell in
-            cell.set(description: item.description, category: item.category)
-        }.disposed(by: disposeBag)
     }
 
-    @objc private func addTapped() {
-        viewModel.showSearch()
+    private func setupBindings() {
+        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) { _, fact, cell in
+            cell.set(description: fact.description, category: fact.category)
+//            cell.shareButton.rx.tap
+//                .map { fact }
+//                .bind(to: viewModel.factShareButtonAction)
+//                .disposed(by: cell.disposeBag)
+        }.disposed(by: disposeBag)
+
+        searchButton.rx.tap
+            .bind(to: viewModel.searchAction)
+            .disposed(by: disposeBag)
     }
 }

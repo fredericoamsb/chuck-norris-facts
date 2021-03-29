@@ -10,9 +10,9 @@ import SearchChuckNorrisFacts
 
 class SearchFactsFactory: BaseFactory, SearchFactsFactoryProtocol {
 
-    func makeSearchFactsViewController() -> SearchFactsViewController {
+    func makeSearchFactsViewController() -> (SearchFactsViewController, SearchFactsViewModelable) {
         let viewModel = resolver.resolveSafe(SearchFactsViewModelable.self)
         let viewController = SearchFactsViewController(viewModel: viewModel)
-        return viewController
+        return (viewController, viewModel)
     }
 }

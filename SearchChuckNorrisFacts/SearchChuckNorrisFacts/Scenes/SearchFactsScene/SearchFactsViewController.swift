@@ -8,15 +8,9 @@
 import UIKit
 import RxSwift
 
-public protocol SearchFactsViewModelable {
-
-    func backToList()
-    func searchFact(query: String)
-}
-
 public final class SearchFactsViewController: UISearchContainerViewController {
 
-    private let viewModel: SearchFactsViewModelable
+    private var viewModel: SearchFactsViewModelable
     private let disposeBag = DisposeBag()
 
     public init(viewModel: SearchFactsViewModelable) {
@@ -33,13 +27,14 @@ public final class SearchFactsViewController: UISearchContainerViewController {
         navigationItem.titleView = searchBar
         navigationItem.hidesSearchBarWhenScrolling = false
 
-        searchBar.rx.cancelButtonClicked.bind {
-            viewModel.backToList()
-        }.disposed(by: disposeBag)
+        searchBar.rx.cancelButtonClicked
+            .bind(to: viewModel.cancelAction)
+            .disposed(by: disposeBag)
 
-        searchBar.rx.searchButtonClicked.bind {
-            viewModel.searchFact(query: searchBar.text ?? "")
-        }.disposed(by: disposeBag)
+        searchBar.rx.searchButtonClicked
+            .map { (searchBar.text ?? "") }
+            .bind(to: viewModel.searchAction)
+            .disposed(by: disposeBag)
     }
 
     required init?(coder: NSCoder) {

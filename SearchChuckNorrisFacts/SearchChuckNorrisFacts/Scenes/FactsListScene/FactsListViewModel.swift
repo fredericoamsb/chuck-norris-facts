@@ -11,32 +11,40 @@ import RxCocoa
 
 public protocol FactsListSceneCoordinating {
 
-    func showSearch()
+    func showSearch() -> Observable<SearchFactsSceneResult>
+}
+
+public protocol FactsListViewModelable {
+
+    var facts: BehaviorSubject<[FactViewModel]> { get }
+    var searchAction: PublishRelay<Void> { get }
 }
 
 public final class FactsListViewModel: FactsListViewModelable {
 
-    public let coodinator: FactsListSceneCoordinating
     public var facts = BehaviorSubject(value: [FactViewModel]())
+    public var searchAction = PublishRelay<Void>()
+
+    let disposeBag = DisposeBag()
 
     public init(coordinator: FactsListSceneCoordinating) {
 
-        self.coodinator = coordinator
-        facts.onNext([FactViewModel(description: "Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1",
-                                    category: "ANIMALS"),
-                      FactViewModel(description: "Teste 2",
-                                    category: nil),
-                      FactViewModel(description: "Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1",
-                                    category: "ANIMALS"),
-                      FactViewModel(description: "Teste 1 Teste 1 Teste 1",
-                                    category: "ANIMALS"),
-                      FactViewModel(description: "Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1",
-                                    category: "ANIMALS"),
-                      FactViewModel(description: "Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1 Teste 1",
-                                    category: "ANIMALS")])
+        searchAction.bind { [weak self] in
+            guard let self = self else {
+                return
+            }
+            coordinator.showSearch()
+                .bind { self.getFacts(result: $0) }
+                .disposed(by: self.disposeBag)
+        }.disposed(by: disposeBag)
     }
 
-    public func showSearch() {
-        coodinator.showSearch()
+    private func getFacts(result: SearchFactsSceneResult) {
+        switch result {
+        case .search(let query):
+            facts.onNext([FactViewModel(description: query, category: nil)])
+        default:
+            break
+        }
     }
 }

@@ -7,12 +7,18 @@
 
 import UIKit
 import RxSwift
-import SearchChuckNorrisFacts
+
+public protocol Coordinator {
+
+    var childCoordinators: [Coordinator] { get set }
+    var navigationController: UINavigationController { get }
+    func start()
+}
 
 public class SearchFactsCoordinator: Coordinator {
 
-    var childCoordinators: [Coordinator] = []
-    var navigationController: UINavigationController
+    public var childCoordinators: [Coordinator] = []
+    public var navigationController: UINavigationController
     private let factsListFactory: FactsListFactoryProtocol
     private let searchFactsFactory: SearchFactsFactoryProtocol
 
@@ -33,12 +39,13 @@ public class SearchFactsCoordinator: Coordinator {
 
 extension SearchFactsCoordinator: FactsListSceneCoordinating {
 
-    public func showSearch(query: BehaviorSubject<String>) {
-        let searchFactsViewController = searchFactsFactory.makeSearchFactsViewController()
-        searchFactsViewController.viewModel.searchQuery = query
+    public func showSearch() -> Observable<SearchFactsSceneResult> {
+        let (searchFactsViewController, viewModel) = searchFactsFactory.makeSearchFactsViewController()
 
         let searchFactsNavigationController = UINavigationController(rootViewController: searchFactsViewController)
         navigationController.present(searchFactsNavigationController, animated: true)
+
+        return viewModel.result
     }
 }
 

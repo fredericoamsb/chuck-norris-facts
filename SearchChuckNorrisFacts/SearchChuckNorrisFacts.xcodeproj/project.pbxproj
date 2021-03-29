@@ -11,7 +11,6 @@
 		B6051169260714D300768042 /* SearchFactsFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6051168260714D300768042 /* SearchFactsFactoryProtocol.swift */; };
 		B60C700F26101E0900EB2AEE /* FactListCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C700E26101E0900EB2AEE /* FactListCellTests.swift */; };
 		B60C7033261033E900EB2AEE /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; };
-		B60C7034261033E900EB2AEE /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B60C7032261033E900EB2AEE /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B60C70392610342400EB2AEE /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70382610342400EB2AEE /* UIView.swift */; };
 		B60C70962610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */; };
 		B60C70972610857F00EB2AEE /* SearchFactsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60C70952610857F00EB2AEE /* SearchFactsCoordinator.swift */; };
@@ -40,20 +39,6 @@
 			remoteInfo = SearchChuckNorrisFacts;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B60C7035261033E900EB2AEE /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B60C7034261033E900EB2AEE /* Domain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6086DB8CC771828A5637BDFF /* Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig"; path = "Target Support Files/Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests/Pods-SearchChuckNorrisFacts-SearchChuckNorrisFactsTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,7 +245,6 @@
 				B61A8C872606A93C00452BA4 /* Sources */,
 				B61A8C882606A93C00452BA4 /* Frameworks */,
 				B61A8C892606A93C00452BA4 /* Resources */,
-				B60C7035261033E900EB2AEE /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
