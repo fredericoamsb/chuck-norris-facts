@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		062AF443ED2C6601CE772E47 /* libPods-DITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 648058C869370CB6FCAD65D2 /* libPods-DITests.a */; };
-		89ED4740E326FC61BB4D096E /* libPods-DI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C2AFDF4F48B3893DA7BD39C8 /* libPods-DI.a */; };
+		7D9B470B81E31FA28746414E /* Pods_DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5D367CD90F0D55A0C2B240 /* Pods_DI.framework */; };
 		B6A6C9A52613E96E0097A2DF /* DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6C99B2613E96E0097A2DF /* DI.framework */; };
 		B6A6C9AA2613E96E0097A2DF /* DITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9A92613E96E0097A2DF /* DITests.swift */; };
 		B6A6C9AC2613E96E0097A2DF /* DI.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A6C99E2613E96E0097A2DF /* DI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -26,6 +25,7 @@
 		B6A6CADD2613F70E0097A2DF /* AppNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CADB2613F70E0097A2DF /* AppNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6A6CAE12613F7150097A2DF /* Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE02613F7150097A2DF /* Facts.framework */; };
 		B6A6CAE22613F7150097A2DF /* Facts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE02613F7150097A2DF /* Facts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C9AA41B60A58A7006CB74FD1 /* Pods_DI_DITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2529372320D23F416CEB20 /* Pods_DI_DITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +55,10 @@
 
 /* Begin PBXFileReference section */
 		45B4DE13317F8FF78419871D /* Pods-DITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DITests.debug.xcconfig"; path = "Target Support Files/Pods-DITests/Pods-DITests.debug.xcconfig"; sourceTree = "<group>"; };
-		648058C869370CB6FCAD65D2 /* libPods-DITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E5D367CD90F0D55A0C2B240 /* Pods_DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		62CE73B2ED4D0BE996CCCB14 /* Pods-DI-DITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI-DITests.release.xcconfig"; path = "Target Support Files/Pods-DI-DITests/Pods-DI-DITests.release.xcconfig"; sourceTree = "<group>"; };
+		68EA9E8F613D6289C30CF9B7 /* Pods-DI-DITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI-DITests.debug.xcconfig"; path = "Target Support Files/Pods-DI-DITests/Pods-DI-DITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8430E7794EA4636F148EC307 /* Pods-App-DI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-DI.debug.xcconfig"; path = "Target Support Files/Pods-App-DI/Pods-App-DI.debug.xcconfig"; sourceTree = "<group>"; };
 		B6A6C99B2613E96E0097A2DF /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6C99E2613E96E0097A2DF /* DI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DI.h; sourceTree = "<group>"; };
 		B6A6C99F2613E96E0097A2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,9 +77,10 @@
 		B6A6C9E12613EB910097A2DF /* SearchFactsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFactory.swift; sourceTree = "<group>"; };
 		B6A6CADB2613F70E0097A2DF /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6CAE02613F7150097A2DF /* Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C2AFDF4F48B3893DA7BD39C8 /* libPods-DI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C69F4CD91F060E1AA1A17D45 /* Pods-DI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI.debug.xcconfig"; path = "Target Support Files/Pods-DI/Pods-DI.debug.xcconfig"; sourceTree = "<group>"; };
+		CD2529372320D23F416CEB20 /* Pods_DI_DITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DI_DITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0CF20B38F7A04B107E44E7 /* Pods-DITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DITests.release.xcconfig"; path = "Target Support Files/Pods-DITests/Pods-DITests.release.xcconfig"; sourceTree = "<group>"; };
+		E54D8DF0A9AE38F964DB055C /* Pods-App-DI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-DI.release.xcconfig"; path = "Target Support Files/Pods-App-DI/Pods-App-DI.release.xcconfig"; sourceTree = "<group>"; };
 		E8996165FB6026754BB62B2B /* Pods-DI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI.release.xcconfig"; path = "Target Support Files/Pods-DI/Pods-DI.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,7 +91,7 @@
 			files = (
 				B6A6CAE12613F7150097A2DF /* Facts.framework in Frameworks */,
 				B6A6CADC2613F70E0097A2DF /* AppNavigation.framework in Frameworks */,
-				89ED4740E326FC61BB4D096E /* libPods-DI.a in Frameworks */,
+				7D9B470B81E31FA28746414E /* Pods_DI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,7 +100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B6A6C9A52613E96E0097A2DF /* DI.framework in Frameworks */,
-				062AF443ED2C6601CE772E47 /* libPods-DITests.a in Frameworks */,
+				C9AA41B60A58A7006CB74FD1 /* Pods_DI_DITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +114,10 @@
 				E8996165FB6026754BB62B2B /* Pods-DI.release.xcconfig */,
 				45B4DE13317F8FF78419871D /* Pods-DITests.debug.xcconfig */,
 				DA0CF20B38F7A04B107E44E7 /* Pods-DITests.release.xcconfig */,
+				8430E7794EA4636F148EC307 /* Pods-App-DI.debug.xcconfig */,
+				E54D8DF0A9AE38F964DB055C /* Pods-App-DI.release.xcconfig */,
+				68EA9E8F613D6289C30CF9B7 /* Pods-DI-DITests.debug.xcconfig */,
+				62CE73B2ED4D0BE996CCCB14 /* Pods-DI-DITests.release.xcconfig */,
 			);
 			name = Pods;
 			path = ../Pods;
@@ -184,8 +192,8 @@
 			children = (
 				B6A6CAE02613F7150097A2DF /* Facts.framework */,
 				B6A6CADB2613F70E0097A2DF /* AppNavigation.framework */,
-				C2AFDF4F48B3893DA7BD39C8 /* libPods-DI.a */,
-				648058C869370CB6FCAD65D2 /* libPods-DITests.a */,
+				5E5D367CD90F0D55A0C2B240 /* Pods_DI.framework */,
+				CD2529372320D23F416CEB20 /* Pods_DI_DITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -232,6 +240,7 @@
 				B6A6C9A02613E96E0097A2DF /* Sources */,
 				B6A6C9A12613E96E0097A2DF /* Frameworks */,
 				B6A6C9A22613E96E0097A2DF /* Resources */,
+				4BC8CFE237A106C28D1DF5E1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -313,11 +322,28 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-DITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-DI-DITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4BC8CFE237A106C28D1DF5E1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DI-DITests/Pods-DI-DITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DI-DITests/Pods-DI-DITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DI-DITests/Pods-DI-DITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B7C1AB7F8E6FB71E86B4DE04 /* [CP] Check Pods Manifest.lock */ = {
@@ -560,7 +586,7 @@
 		};
 		B6A6C9B32613E96E0097A2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 45B4DE13317F8FF78419871D /* Pods-DITests.debug.xcconfig */;
+			baseConfigurationReference = 68EA9E8F613D6289C30CF9B7 /* Pods-DI-DITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -580,7 +606,7 @@
 		};
 		B6A6C9B42613E96E0097A2DF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA0CF20B38F7A04B107E44E7 /* Pods-DITests.release.xcconfig */;
+			baseConfigurationReference = 62CE73B2ED4D0BE996CCCB14 /* Pods-DI-DITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
