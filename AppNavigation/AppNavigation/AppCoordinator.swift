@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import SearchChuckNorrisFacts
+import Facts
 
 public class AppCoordinator: Coordinator {
 

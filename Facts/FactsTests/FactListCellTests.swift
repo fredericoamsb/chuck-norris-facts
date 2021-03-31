@@ -1,12 +1,12 @@
 //
 //  FactListCellTests.swift
-//  SearchChuckNorrisFactsTests
+//  FactsTests
 //
-//  Created by Frederico Augusto on 27/03/21.
+//  Created by Frederico Augusto on 29/03/21.
 //
 
 import XCTest
-@testable import SearchChuckNorrisFacts
+@testable import Facts
 
 class FactListCellTests: XCTestCase {
 
@@ -25,7 +25,7 @@ class FactListCellTests: XCTestCase {
         sut.set(description: string, category: "category")
 
         XCTAssertLessThanOrEqual(string.count, 80)
-        XCTAssert(sut.infoLabel.font == UIFont.preferredFont(forTextStyle: .title1))
+        XCTAssertEqual(sut.infoLabel.font, UIFont.preferredFont(forTextStyle: .title1))
     }
 
     func test_FactListCell_DescriptionFontShouldBeTitle2() {

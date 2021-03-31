@@ -14,7 +14,7 @@
       location = "container:"
       name = "Features">
       <FileRef
-         location = "group:SearchChuckNorrisFacts/SearchChuckNorrisFacts.xcodeproj">
+         location = "group:Facts/Facts.xcodeproj">
       </FileRef>
    </Group>
    <FileRef
@@ -25,5 +25,11 @@
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Podfile">
+   </FileRef>
+   <FileRef
+      location = "group:swiftgen.yml">
    </FileRef>
 </Workspace>

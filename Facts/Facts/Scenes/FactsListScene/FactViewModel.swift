@@ -1,6 +1,6 @@
 //
 //  FactViewModel.swift
-//  SearchChuckNorrisFacts
+//  Facts
 //
 //  Created by Frederico Augusto on 25/03/21.
 //

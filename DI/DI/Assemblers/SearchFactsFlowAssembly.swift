@@ -6,7 +6,7 @@
 //
 
 import Swinject
-import SearchChuckNorrisFacts
+import Facts
 import AppNavigation
 
 class SearchFactsFlowAssembly: Assembly {

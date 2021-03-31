@@ -5,7 +5,7 @@
 //  Created by Frederico Augusto on 21/03/21.
 //
 
-import SearchChuckNorrisFacts
+import Facts
 
 public protocol CoordinatorFactoryProtocol {
 

@@ -1,4 +1,3 @@
-use_frameworks!
 workspace 'ChuckNorrisFacts.xcworkspace'
 
 # version
@@ -38,23 +37,32 @@ target 'App' do
   tools
   networkingPods
   diPods
-  target 'AppTests'
+  target 'AppTests' do
+    inherit! :search_paths
+  end
 end
 
 target 'DI' do
   project 'DI/DI'
   diPods
-  target 'DITests'
+  target 'DITests' do
+    inherit! :search_paths
+  end
 end
 
-target 'SearchChuckNorrisFacts' do
-  project 'SearchChuckNorrisFacts/SearchChuckNorrisFacts'
+target 'Facts' do
+  project 'Facts/Facts'
   rx_pods
-  target 'SearchChuckNorrisFactsTests'
+  target 'FactsTests' do
+    inherit! :search_paths
+    rx_tests
+  end
 end
 
 target 'Networking' do
   project 'Networking/Networking'
   networkingPods
-  target 'NetworkingTests'
+  target 'NetworkingTests' do
+    inherit! :search_paths
+  end
 end

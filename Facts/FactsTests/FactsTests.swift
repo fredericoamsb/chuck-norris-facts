@@ -1,14 +1,14 @@
 //
-//  SearchChuckNorrisFactsTests.swift
-//  SearchChuckNorrisFactsTests
+//  FactsTests.swift
+//  FactsTests
 //
-//  Created by Frederico Augusto on 20/03/21.
+//  Created by Frederico Augusto on 30/03/21.
 //
 
 import XCTest
-@testable import SearchChuckNorrisFacts
+@testable import Facts
 
-class SearchChuckNorrisFactsTests: XCTestCase {
+class FactsTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

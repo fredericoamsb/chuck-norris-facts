@@ -7,7 +7,7 @@
 
 import Swinject
 import AppNavigation
-import SearchChuckNorrisFacts
+import Facts
 
 class CoordinatorFactory: BaseFactory, CoordinatorFactoryProtocol {
 

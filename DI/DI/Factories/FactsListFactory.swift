@@ -6,7 +6,7 @@
 //
 
 import Swinject
-import SearchChuckNorrisFacts
+import Facts
 
 class FactsListFactory: BaseFactory, FactsListFactoryProtocol {
 

@@ -2,7 +2,7 @@
 //  AppUITests.swift
 //  AppUITests
 //
-//  Created by Frederico Augusto on 20/03/21.
+//  Created by Frederico Augusto on 30/03/21.
 //
 
 import XCTest
@@ -15,8 +15,7 @@ class AppUITests: XCTestCase {
         // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run.
-        // The setUp method is a good place to do this.
+        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {

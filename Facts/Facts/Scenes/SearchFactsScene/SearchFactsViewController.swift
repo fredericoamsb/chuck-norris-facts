@@ -1,6 +1,6 @@
 //
 //  SearchFactsViewController.swift
-//  SearchChuckNorrisFacts
+//  Facts
 //
 //  Created by Frederico Augusto on 20/03/21.
 //
