@@ -1,0 +1,10 @@
+itc_team_id("000000") # App Store Connect Team ID
+team_id("XXXXXXXXXX") # Developer Portal Team ID
+
+for_lane :homolog && :homologVersionUp do
+    app_identifier 'com.chucknorris.facts-homolog'
+end
+
+for_lane :production && :productionVersionUp && store do
+    app_identifier 'com.chucknorris.facts-production.'
+end

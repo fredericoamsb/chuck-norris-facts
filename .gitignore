@@ -1,3 +1,5 @@
 xcuserdata/
+xcshareddata/
 Pods/
 .DS_Store
+fastlane/**/report.*
