@@ -4,6 +4,7 @@ platform :ios do
 
   desc "Push a new homolog build to TestFlight"
   lane :tests do
+    cocoapods
     run_tests(workspace: "ChuckNorrisFacts.xcworkspace",
               scheme: "Domain")
     run_tests(workspace: "ChuckNorrisFacts.xcworkspace",
@@ -12,6 +13,7 @@ platform :ios do
 
   desc "Push a new homolog build to TestFlight"
   lane :homolog do |options|
+    cocoapods
     increment_build_number_xcodeproj(target: 'App')
     build_app(workspace: "ChuckNorrisFacts.xcworkspace", scheme: "App")
     upload_to_testflight(username: options[:username])
@@ -31,6 +33,7 @@ platform :ios do
 
   desc "Push a new production build to TestFlight"
   lane :production do |options|
+    cocoapods
     increment_build_number_xcodeproj(target: 'AppProd')
     build_app(workspace: "ChuckNorrisFacts.xcworkspace", scheme: "AppProd")
     upload_to_testflight(username: options[:username])
