@@ -13,5 +13,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    - name: Bundle Update
+      run: bundle update
     - name: Run tests
       run: bundle exec fastlane tests
