@@ -8,7 +8,7 @@
 import RxSwift
 import RxCocoa
 
-public enum SearchFactsSceneResult {
+public enum SearchFactsSceneResult: Equatable {
     case cancel
     case search(String)
 }

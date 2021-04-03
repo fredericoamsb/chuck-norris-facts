@@ -10,6 +10,7 @@
 		B6A6CA8E2613F5370097A2DF /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CA842613F5370097A2DF /* Domain.framework */; };
 		B6A6CA932613F5370097A2DF /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA922613F5370097A2DF /* DomainTests.swift */; };
 		B6A6CA952613F5370097A2DF /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A6CA872613F5370097A2DF /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6E3345A26184B010058C0B8 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3345926184B010058C0B8 /* Fact.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		B6A6CA8D2613F5370097A2DF /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6CA922613F5370097A2DF /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		B6A6CA942613F5370097A2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6E3345926184B010058C0B8 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		B6A6CA862613F5370097A2DF /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				B6E3345826184AE00058C0B8 /* Models */,
 				B6A6CA872613F5370097A2DF /* Domain.h */,
 				B6A6CA882613F5370097A2DF /* Info.plist */,
 			);
@@ -84,6 +87,14 @@
 				B6A6CA942613F5370097A2DF /* Info.plist */,
 			);
 			path = DomainTests;
+			sourceTree = "<group>";
+		};
+		B6E3345826184AE00058C0B8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B6E3345926184B010058C0B8 /* Fact.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 				TargetAttributes = {
 					B6A6CA832613F5370097A2DF = {
 						CreatedOnToolsVersion = 12.4;
+						LastSwiftMigration = 1240;
 					};
 					B6A6CA8C2613F5370097A2DF = {
 						CreatedOnToolsVersion = 12.4;
@@ -194,6 +206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6E3345A26184B010058C0B8 /* Fact.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +354,7 @@
 		B6A6CA992613F5370097A2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = W784K89ZH2;
@@ -358,6 +372,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +381,7 @@
 		B6A6CA9A2613F5370097A2DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = W784K89ZH2;
@@ -391,6 +407,7 @@
 		B6A6CA9C2613F5370097A2DF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W784K89ZH2;
 				INFOPLIST_FILE = DomainTests/Info.plist;
@@ -409,6 +426,7 @@
 		B6A6CA9D2613F5370097A2DF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W784K89ZH2;
 				INFOPLIST_FILE = DomainTests/Info.plist;

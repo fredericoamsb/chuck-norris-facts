@@ -10,6 +10,16 @@ import XCTest
 
 class FactListCellTests: XCTestCase {
 
+    var sut: FactListCell!
+
+    override func setUp() {
+        sut = FactListCell()
+    }
+
+    override func tearDown() {
+        sut = nil
+    }
+
     private func createStringWith(charactersCount: UInt) -> String {
         var string = ""
         for _ in 1...charactersCount {
@@ -19,7 +29,6 @@ class FactListCellTests: XCTestCase {
     }
 
     func test_FactListCell_DescriptionFontShouldBeTitle1() {
-        let sut = FactListCell()
         let string = createStringWith(charactersCount: 80)
 
         sut.set(description: string, category: "category")
@@ -29,7 +38,6 @@ class FactListCellTests: XCTestCase {
     }
 
     func test_FactListCell_DescriptionFontShouldBeTitle2() {
-        let sut = FactListCell()
         let string = createStringWith(charactersCount: 81)
 
         sut.set(description: string, category: "category")
@@ -39,8 +47,6 @@ class FactListCellTests: XCTestCase {
     }
 
     func test_FactListCell_CategoryShouldBeUncategorized() {
-        let sut = FactListCell()
-
         sut.set(description: "", category: nil)
 
         XCTAssertEqual(sut.categotyLabel.text, "UNCATEGORIZED")
