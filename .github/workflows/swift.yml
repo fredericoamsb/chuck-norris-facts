@@ -13,10 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Setup Cocoapods
-      uses: maxim-lobanov/setup-cocoapods@v1
-      with:
-        version: 1.10.1
     - name: Bundle install
       run: bundle install
     - name: Run tests
