@@ -14,9 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Select Xcode 12
-      run: sudo xcode-select -switch /Applications/Xcode_12.4.app
-
     - name: Bundle Install
       run: bundle install
 
