@@ -47,10 +47,12 @@ target 'DI' do
   target 'DITests'
 end
 
-target 'SearchChuckNorrisFacts' do
-  project 'SearchChuckNorrisFacts/SearchChuckNorrisFacts'
+target 'Facts' do
+  project 'Facts/Facts'
   rx_pods
-  target 'SearchChuckNorrisFactsTests'
+  target 'FactsTests' do
+    rx_tests
+  end
 end
 
 target 'Networking' do

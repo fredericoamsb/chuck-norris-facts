@@ -7,6 +7,7 @@
 
 import Swinject
 import AppNavigation
+import Facts
 
 class CoordinatorFactory: BaseFactory, CoordinatorFactoryProtocol {
 
