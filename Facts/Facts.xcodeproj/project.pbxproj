@@ -110,6 +110,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B6932A4C2619900500F2DD69 /* Fact */ = {
+			isa = PBXGroup;
+			children = (
+				B6A6CA4E2613F41D0097A2DF /* FactListCell.swift */,
+				B6A6CA482613F4130097A2DF /* FactViewModel.swift */,
+			);
+			path = Fact;
+			sourceTree = "<group>";
+		};
 		B6A6CA192613EF9D0097A2DF = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +181,7 @@
 		B6A6CA462613F3F20097A2DF /* FactsListScene */ = {
 			isa = PBXGroup;
 			children = (
-				B6A6CA482613F4130097A2DF /* FactViewModel.swift */,
-				B6A6CA4E2613F41D0097A2DF /* FactListCell.swift */,
+				B6932A4C2619900500F2DD69 /* Fact */,
 				B6A6CA522613F4270097A2DF /* FactsListViewController.swift */,
 				B6A6CA5A2613F4380097A2DF /* FactsListViewModel.swift */,
 				B6A6CA562613F4300097A2DF /* FactsListFactoryProtocol.swift */,

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Domain
 
 public final class FactViewModel: Equatable {
 
@@ -19,5 +20,19 @@ public final class FactViewModel: Equatable {
 
     public static func == (lhs: FactViewModel, rhs: FactViewModel) -> Bool {
         lhs.description == rhs.description && lhs.category == rhs.category
+    }
+}
+
+extension Fact {
+
+    var asViewModel: FactViewModel {
+        FactViewModel(description: self.value, category: self.category)
+    }
+}
+
+extension Array where Element == Fact {
+
+    var asViewModels: [FactViewModel] {
+        self.map { $0.asViewModel }
     }
 }

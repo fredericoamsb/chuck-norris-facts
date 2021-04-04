@@ -8,9 +8,9 @@
 import RxSwift
 import Domain
 
-final class FactsInteractorMock {
+final class FactsInteractorMock: FactsInteractorHandling {
 
-    let searchFactsReturnValue: Observable<[Fact]> = .just([])
+    var searchFactsReturnValue: Observable<[Fact]> = .just([])
     func searchFacts(query: String) -> Observable<[Fact]> {
         return searchFactsReturnValue
     }

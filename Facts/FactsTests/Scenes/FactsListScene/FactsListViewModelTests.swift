@@ -6,9 +6,10 @@
 //
 
 import XCTest
-import Facts
 import RxSwift
 import RxTest
+@testable import Facts
+@testable import Domain
 
 class FactsListViewModelTests: XCTestCase {
 
@@ -21,9 +22,9 @@ class FactsListViewModelTests: XCTestCase {
     override func setUp() {
         scheduler = TestScheduler(initialClock: 0)
         fakeCoordinator = FakeSearchFactsCoordinator(scheduler: scheduler)
-        sut = FactsListViewModel(coordinator: fakeCoordinator)
-        disposeBag = DisposeBag()
         factsInteractorMock = FactsInteractorMock()
+        sut = FactsListViewModel(coordinator: fakeCoordinator, interactor: factsInteractorMock)
+        disposeBag = DisposeBag()
     }
 
     override func tearDown() {
@@ -90,14 +91,16 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertNotEqual(newState, state)
     }
 
-    func test_whenRequestSearchSuccessful_ShouldReturnEmpty() {
-        factsInteractorMock.searchFacts(query: "query").subscribe(onNext: { list in
-            let viewModels = list.map { FactViewModel(description: $0.value, category: $0.category) }
-            self.sut.facts =  BehaviorSubject(value: viewModels)
-        }).disposed(by: disposeBag)
+    func test_whenRequestSearchSuccessful_ShouldReturnCorrectFacts() {
+        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "id", url: nil, category: nil, value: "description a")])
+
+        let searchButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        searchButtonTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        scheduler.start()
 
         sut.facts.bind { list in
-            XCTAssertEqual(list.count, 0)
+            XCTAssertEqual(list, [Fact(id: "id", url: nil, category: nil, value: "description a")].asViewModels)
         }.disposed(by: disposeBag)
     }
 }

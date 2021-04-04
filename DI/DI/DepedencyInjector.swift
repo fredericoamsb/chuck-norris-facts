@@ -19,6 +19,8 @@ public class DependencyInjector {
 
     public func build(completion: (_ appCoordinator: AppCoordinator) -> Void) {
         let assembler = Assembler([
+            InteractorFactoryAssembly(),
+            InteractorAssembly(),
             CoordinatorFactoryAssembly(),
             CoordinatorAssembly(navigationController: self.navigationController),
             ViewControllersFactoryAssembly(),
