@@ -19,7 +19,8 @@ public protocol FactsListViewModelable {
 
     // outputs
     var facts: BehaviorSubject<[FactViewModel]> { get }
-    var isLoading: BehaviorSubject<Bool> { get }
+    var isLoading: PublishSubject<Bool> { get }
+    var errorAction: PublishSubject<String> { get }
     // inputs
     var searchAction: PublishRelay<Void> { get }
     var searchActionResult: PublishRelay<SearchFactsSceneResult> { get }
@@ -29,7 +30,8 @@ public final class FactsListViewModel: FactsListViewModelable {
 
     // outputs
     public var facts = BehaviorSubject(value: [FactViewModel]())
-    public var isLoading: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    public var isLoading = PublishSubject<Bool>()
+    public var errorAction = PublishSubject<String>()
     // inputs
     public var searchAction = PublishRelay<Void>()
     public var searchActionResult = PublishRelay<SearchFactsSceneResult>()
@@ -53,15 +55,19 @@ public final class FactsListViewModel: FactsListViewModelable {
             }
             switch result {
             case .search(let query):
+                self.facts.onNext([])
                 self.isLoading.onNext(true)
                 interactor.searchFacts(query: query)
+                    .retry(3)
+                    .takeUntil(self.searchActionResult.asObservable())
                     .subscribe { facts in
                         self.facts.onNext(facts.asViewModels)
-                    } onError: { error in
-                        self.facts.onError(error)
-                    } onCompleted: {
                         self.isLoading.onNext(false)
-                    }.disposed(by: self.disposeBag)
+                    } onError: { _ in
+                        self.errorAction.onNext(L10n.FactsList.Alert.message)
+                        self.isLoading.onNext(false)
+                    }
+                    .disposed(by: self.disposeBag)
             case .cancel:
                 break
             }

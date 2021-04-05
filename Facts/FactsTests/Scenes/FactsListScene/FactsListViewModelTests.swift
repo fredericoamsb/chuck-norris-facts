@@ -8,116 +8,198 @@
 import XCTest
 import RxSwift
 import RxTest
+import RxBlocking
 @testable import Facts
 @testable import Domain
 
 class FactsListViewModelTests: XCTestCase {
 
     var scheduler: TestScheduler!
-    var fakeCoordinator: FakeSearchFactsCoordinator!
+    var factsCoordinatorMock: SearchFactsCoordinatorMock!
+    var factsInteractorMock: FactsInteractorMock!
     var sut: FactsListViewModel!
     var disposeBag: DisposeBag!
-    var factsInteractorMock: FactsInteractorMock!
 
     override func setUp() {
         scheduler = TestScheduler(initialClock: 0)
-        fakeCoordinator = FakeSearchFactsCoordinator(scheduler: scheduler)
+        factsCoordinatorMock = SearchFactsCoordinatorMock(scheduler: scheduler)
         factsInteractorMock = FactsInteractorMock()
-        sut = FactsListViewModel(coordinator: fakeCoordinator, interactor: factsInteractorMock)
+        sut = FactsListViewModel(coordinator: factsCoordinatorMock, interactor: factsInteractorMock)
         disposeBag = DisposeBag()
     }
 
     override func tearDown() {
-        sut = nil
-        fakeCoordinator = nil
-        disposeBag = nil
         scheduler = nil
+        factsCoordinatorMock = nil
         factsInteractorMock = nil
+        sut = nil
+        disposeBag = nil
     }
 
     func test_FactsList_ShouldStartEmpty() {
-        sut.facts.bind { list in
-            XCTAssertEqual(list.count, 0)
-        }.disposed(by: disposeBag)
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let facts = factsObserver.events.map { $0.value.element }.first
+        XCTAssertEqual(facts, [])
     }
 
     func test_whenSearchButtonTapped_ShouldReceiveResultsCorrectly() {
         let searchButtonTappedObserver = scheduler.createObserver(SearchFactsSceneResult.self)
 
-        fakeCoordinator.showSearch().bind(to: sut.searchActionResult).disposed(by: disposeBag)
+        factsCoordinatorMock.showSearchReturnValue = [.next(0, .search("query")),
+                                                      .next(1, .cancel),
+                                                      .next(2, .search(""))]
+        factsCoordinatorMock.showSearch().bind(to: sut.searchActionResult).disposed(by: disposeBag)
 
         sut.searchActionResult.bind(to: searchButtonTappedObserver).disposed(by: disposeBag)
 
         scheduler.start()
 
-        XCTAssertEqual(searchButtonTappedObserver.events, [.next(0, .search("query")),
-                                                           .next(1, .cancel),
-                                                           .next(2, .search(""))])
+        let resultEvents = searchButtonTappedObserver.events.map { $0.value.element }
+        XCTAssertEqual(resultEvents, [.search("query"), .cancel, .search("")])
     }
 
-    func test_whenCancelResultReceived_ShouldNotChangeFactsList() {
+    func test_whenCancelResultReceived_ShouldNotChangeFactsListState() {
         let state = [FactViewModel(description: "description a", category: nil),
                      FactViewModel(description: "description b", category: nil)]
-        sut.facts =  BehaviorSubject(value: state)
+        sut.facts.onNext(state)
 
         let cancelButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.cancel)])
         cancelButtonTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
 
-        var newState = [FactViewModel]()
-        self.sut.facts.bind { list in
-                newState = list
-            }.disposed(by: self.disposeBag)
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
         scheduler.start()
 
+        let newState = factsObserver.events.compactMap { $0.value.element }.last
         XCTAssertEqual(newState, state)
     }
 
     func test_whenSearchResultReceived_ShouldChangeFactsList() {
         let state = [FactViewModel(description: "description a", category: nil),
                      FactViewModel(description: "description b", category: nil)]
-        sut.facts =  BehaviorSubject(value: state)
+        sut.facts.onNext(state)
 
-        let searchButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
-        searchButtonTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
 
-        var newState = [FactViewModel]()
-        self.sut.facts.bind { list in
-                newState = list
-            }.disposed(by: self.disposeBag)
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
         scheduler.start()
 
+        let newState = factsObserver.events.compactMap { $0.value.element }.last
         XCTAssertNotEqual(newState, state)
     }
 
-    func test_whenRequestSearchSuccessful_ShouldReturnCorrectFacts() {
-        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "id", url: nil, category: nil, value: "description a")])
+    func test_whenRequestSearchReturnSuccess_ShouldReturnCorrectFacts() {
+        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", url: nil, category: nil, value: "description a"),
+                                                            Fact(id: "222", url: nil, category: nil, value: "description b")])
 
-        let searchButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
-        searchButtonTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
         scheduler.start()
 
-        sut.facts.bind { list in
-            XCTAssertEqual(list, [Fact(id: "id", url: nil, category: nil, value: "description a")].asViewModels)
-        }.disposed(by: disposeBag)
-    }
-}
-
-final class FakeSearchFactsCoordinator: FactsListSceneCoordinating {
-
-    let scheduler: TestScheduler
-
-    init(scheduler: TestScheduler) {
-        self.scheduler = scheduler
+        let factsEvents = factsObserver.events.map { $0.value.element }
+        XCTAssertEqual(factsEvents[2], [Fact(id: "111", url: nil, category: nil, value: "description a"),
+                                        Fact(id: "222", url: nil, category: nil, value: "description b")].asViewModels)
     }
 
-    func showSearch() -> Observable<SearchFactsSceneResult> {
-        let fakeSearchButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query")),
-                                                             .next(1, SearchFactsSceneResult.cancel),
-                                                             .next(2, SearchFactsSceneResult.search(""))])
+    func test_whenRequestSearchReturnError_factsListShouldBeEmpty() {
+        factsInteractorMock.searchFactsReturnValue = .error(NSError())
 
-        return fakeSearchButtonTapped.asObservable()
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let facts = factsObserver.events.compactMap { $0.value.element }.last
+        XCTAssertEqual(facts?.count, 0)
+    }
+
+    func test_whenRequestSearchReturnError_showAlertError() {
+        factsInteractorMock.searchFactsReturnValue = .error(NSError())
+
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let errorActionObserver = scheduler.createObserver(String.self)
+        sut.errorAction.bind(to: errorActionObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let errorEvents = errorActionObserver.events.compactMap { $0.value.element }
+        XCTAssertFalse(errorEvents.isEmpty)
+    }
+
+    func test_whenRequestSearch_factsListShouldBeEmpty() {
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let facts = factsObserver.events.compactMap { $0.value.element }[1]
+        XCTAssertEqual(facts.count, 0)
+    }
+
+    func test_whenRequestSearch_shouldShowAndHideLoadingIndicator() {
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let isLoadingObserver = scheduler.createObserver(Bool.self)
+        sut.isLoading.bind(to: isLoadingObserver).disposed(by: disposeBag)
+
+        self.factsInteractorMock.delayTime = 2
+        scheduler.start()
+
+        let whenRequest = isLoadingObserver.events.compactMap { $0.value.element }.first!
+        XCTAssertTrue(whenRequest)
+
+        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+
+        let afterRequest = isLoadingObserver.events.compactMap { $0.value.element }.last!
+        XCTAssertFalse(afterRequest)
+    }
+
+    func test_whenRequestSearchRaceCondition_shouldOnlyReturnFromLastRequestMade() {
+        let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(1, SearchFactsSceneResult.search("query 1")),
+                                                                     .next(2, SearchFactsSceneResult.search("query 2")),
+                                                                     .next(3, SearchFactsSceneResult.search("query 3"))])
+        keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
+
+        self.factsInteractorMock.testRaceCondition = true
+        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", url: nil, category: nil, value: "1")])
+        scheduler.scheduleAt(1) {
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", url: nil, category: nil, value: "2")])
+        }
+        scheduler.scheduleAt(2) {
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "3", url: nil, category: nil, value: "3")])
+        }
+
+        scheduler.start()
+
+        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+
+        let factsEvents = factsObserver.events.compactMap { $0.value.element }
+
+        XCTAssertEqual(factsEvents.count, 5)
+        XCTAssertEqual(factsEvents.last, [Fact(id: "3", url: nil, category: nil, value: "3")].asViewModels)
     }
 }

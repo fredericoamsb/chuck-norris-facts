@@ -10,8 +10,21 @@ import Domain
 
 final class FactsInteractorMock: FactsInteractorHandling {
 
+    var delayTime = 5
     var searchFactsReturnValue: Observable<[Fact]> = .just([])
-    func searchFacts(query: String) -> Observable<[Fact]> {
+    var testRaceCondition = false
+    public func searchFacts(query: String) -> Observable<[Fact]> {
+        if testRaceCondition {
+            let x = delayTime
+            if delayTime == 0 {
+                delayTime = 5
+            } else {
+                delayTime -= 1
+            }
+
+            return searchFactsReturnValue.delay(.milliseconds(x), scheduler: MainScheduler.instance)
+        }
+
         return searchFactsReturnValue
     }
 }
