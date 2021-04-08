@@ -59,7 +59,8 @@ public final class FactsListViewModel: FactsListViewModelable {
                 self.isLoading.onNext(true)
                 interactor.searchFacts(query: query)
                     .retry(3)
-                    .takeUntil(self.searchActionResult.asObservable())
+                    .takeUntil(self.searchActionResult
+                                .filter { $0.case == .search }.asObservable())
                     .subscribe { facts in
                         self.facts.onNext(facts.asViewModels)
                         self.isLoading.onNext(false)

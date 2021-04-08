@@ -202,4 +202,31 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(factsEvents.count, 5)
         XCTAssertEqual(factsEvents.last, [Fact(id: "3", url: nil, category: nil, value: "3")].asViewModels)
     }
+
+    func test_whenRequestSearchRaceConditionThanPressCancel_shouldReturnLastRequestMade() {
+        let keyboardSearchOrCancelKeyTapped = scheduler.createHotObservable([.next(1, SearchFactsSceneResult.search("query 1")),
+                                                                     .next(2, SearchFactsSceneResult.search("query 2")),
+                                                                     .next(3, SearchFactsSceneResult.cancel)])
+        keyboardSearchOrCancelKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        let factsObserver = scheduler.createObserver([FactViewModel].self)
+        sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
+
+        self.factsInteractorMock.testRaceCondition = true
+        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", url: nil, category: nil, value: "1")])
+        scheduler.scheduleAt(1) {
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", url: nil, category: nil, value: "2")])
+        }
+
+        scheduler.start()
+
+        keyboardSearchOrCancelKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
+
+        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+
+        let factsEvents = factsObserver.events.compactMap { $0.value.element }
+
+        XCTAssertEqual(factsEvents.count, 4)
+        XCTAssertEqual(factsEvents.last, [Fact(id: "2", url: nil, category: nil, value: "2")].asViewModels)
+    }
 }

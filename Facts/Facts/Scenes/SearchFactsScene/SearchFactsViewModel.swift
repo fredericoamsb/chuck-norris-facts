@@ -11,6 +11,20 @@ import RxCocoa
 public enum SearchFactsSceneResult: Equatable {
     case cancel
     case search(String)
+
+    var `case`: Case {
+        switch self {
+        case .search:
+            return .search
+        case .cancel:
+            return .cancel
+        }
+    }
+
+    enum Case {
+        case cancel
+        case search
+    }
 }
 
 public protocol SearchFactsSceneCoordinating {

@@ -158,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E333FE2617F0320058C0B8 /* Scenes */,
+				B6E334532618485F0058C0B8 /* Mocks */,
 				B6A6CA332613EF9D0097A2DF /* Info.plist */,
 			);
 			path = FactsTests;
@@ -233,7 +234,6 @@
 		B6E333FE2617F0320058C0B8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				B6E334532618485F0058C0B8 /* Mocks */,
 				B6E333FF2617F03C0058C0B8 /* FactsListScene */,
 			);
 			path = Scenes;
