@@ -16,7 +16,17 @@ public final class FactsInteractor: FactsInteractorHandling {
 
     public init() {}
 
+    var delayTime = 6
+    var searchFactsReturnValue: Observable<[Fact]> = .just([])
     public func searchFacts(query: String) -> Observable<[Fact]> {
-        return .just([])
+        let x = delayTime
+        if delayTime == 0 {
+            delayTime = 6
+        } else {
+            delayTime -= 3
+        }
+        searchFactsReturnValue = .just([Fact(id: "", url: nil, category: query, value: query),
+                                        Fact(id: "", url: nil, category: query, value: query)])
+        return searchFactsReturnValue.delay(.seconds(x), scheduler: MainScheduler.instance)
     }
 }

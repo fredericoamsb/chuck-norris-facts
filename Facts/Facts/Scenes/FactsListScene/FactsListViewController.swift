@@ -12,12 +12,12 @@ import RxCocoa
 public final class FactsListViewController: UIViewController {
 
     // MARK: Instances
-    public let viewModel: FactsListViewModelable
+    private let viewModel: FactsListViewModelable
     private let factsListTableView = UITableView()
     private let cellIdentifier = "factListCell"
     private let disposeBag = DisposeBag()
 
-    private lazy var searchButton = ({
+    lazy var searchButton = ({
         return UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
     })()
 
@@ -45,7 +45,7 @@ public final class FactsListViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        navigationItem.title = L10n.FactsList.title
+        self.title = L10n.FactsList.title
         navigationItem.rightBarButtonItem = searchButton
         navigationController?.navigationBar.prefersLargeTitles = true
 

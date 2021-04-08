@@ -40,7 +40,8 @@ public class SearchFactsCoordinator: Coordinator {
 extension SearchFactsCoordinator: FactsListSceneCoordinating {
 
     public func showSearch() -> Observable<SearchFactsSceneResult> {
-        let (searchFactsViewController, viewModel) = searchFactsFactory.makeSearchFactsViewController()
+        let searchFactsViewController = searchFactsFactory.makeSearchFactsViewController()
+        let viewModel = searchFactsViewController.viewModel
 
         let searchFactsNavigationController = UINavigationController(rootViewController: searchFactsViewController)
         navigationController.present(searchFactsNavigationController, animated: true)

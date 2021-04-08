@@ -11,11 +11,8 @@ import Domain
 class InteractorAssembly: Assembly {
 
     func assemble(container: Container) {
-
-        // MARK: FactsInteractor
         container.register(FactsInteractorHandling.self) { _ in
-            let factsInteractor = FactsInteractor()
-            return factsInteractor
+            return FactsInteractor()
         }
     }
 }
