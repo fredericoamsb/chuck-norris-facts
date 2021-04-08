@@ -13,26 +13,31 @@ import RxTest
 
 class FactListViewControllerTests: XCTestCase {
 
+    var scheduler: TestScheduler!
     var factsCoordinatorMock: SearchFactsCoordinatorMock!
     var factsInteractorMock: FactsInteractorMock!
     var sut: FactsListViewController!
     var vm: FactsListViewModel!
+    var disposeBag: DisposeBag!
 
     override func setUp() {
+        scheduler = TestScheduler(initialClock: 0)
         factsCoordinatorMock = SearchFactsCoordinatorMock(scheduler: scheduler)
         factsInteractorMock = FactsInteractorMock()
         vm = FactsListViewModel(coordinator: factsCoordinatorMock, interactor: factsInteractorMock)
         sut = FactsListViewController(viewModel: vm)
-
+        disposeBag = DisposeBag()
         sut.loadView()
         sut.viewDidLoad()
     }
 
     override func tearDown() {
+        scheduler = nil
         factsCoordinatorMock = nil
         factsInteractorMock = nil
         vm = nil
         sut = nil
+        disposeBag = nil
     }
 
     func test_Title() {

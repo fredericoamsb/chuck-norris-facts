@@ -16,10 +16,9 @@ final class FactsInteractorMock: FactsInteractorHandling {
     public func searchFacts(query: String) -> Observable<[Fact]> {
         if testRaceCondition {
             let x = delayTime
+            delayTime -= 1
             if delayTime == 0 {
                 delayTime = 5
-            } else {
-                delayTime -= 1
             }
 
             return searchFactsReturnValue.delay(.milliseconds(x), scheduler: MainScheduler.instance)
