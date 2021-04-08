@@ -18,7 +18,6 @@ class FactListViewControllerTests: XCTestCase {
     var factsInteractorMock: FactsInteractorMock!
     var sut: FactsListViewController!
     var vm: FactsListViewModel!
-    var disposeBag: DisposeBag!
 
     override func setUp() {
         scheduler = TestScheduler(initialClock: 0)
@@ -26,7 +25,6 @@ class FactListViewControllerTests: XCTestCase {
         factsInteractorMock = FactsInteractorMock()
         vm = FactsListViewModel(coordinator: factsCoordinatorMock, interactor: factsInteractorMock)
         sut = FactsListViewController(viewModel: vm)
-        disposeBag = DisposeBag()
         sut.loadView()
         sut.viewDidLoad()
     }
@@ -37,7 +35,6 @@ class FactListViewControllerTests: XCTestCase {
         factsInteractorMock = nil
         vm = nil
         sut = nil
-        disposeBag = nil
     }
 
     func test_Title() {

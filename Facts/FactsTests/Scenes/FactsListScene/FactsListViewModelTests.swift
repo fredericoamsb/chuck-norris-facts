@@ -163,13 +163,13 @@ class FactsListViewModelTests: XCTestCase {
         let isLoadingObserver = scheduler.createObserver(Bool.self)
         sut.isLoading.bind(to: isLoadingObserver).disposed(by: disposeBag)
 
-        self.factsInteractorMock.delayTime = 2
+        self.factsInteractorMock.testRaceCondition = true
         scheduler.start()
 
         let whenRequest = isLoadingObserver.events.compactMap { $0.value.element }.first!
         XCTAssertTrue(whenRequest)
 
-        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+        _ = Observable.just(()).delay(.milliseconds(5), scheduler: MainScheduler.instance).toBlocking().materialize()
 
         let afterRequest = isLoadingObserver.events.compactMap { $0.value.element }.last!
         XCTAssertFalse(afterRequest)
@@ -195,7 +195,7 @@ class FactsListViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+        _ = Observable.just(()).delay(.milliseconds(5), scheduler: MainScheduler.instance).toBlocking().materialize()
 
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
@@ -220,9 +220,7 @@ class FactsListViewModelTests: XCTestCase {
 
         scheduler.start()
 
-        keyboardSearchOrCancelKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
-
-        _ = factsInteractorMock.searchFacts(query: "query").toBlocking().materialize()
+        _ = Observable.just(()).delay(.milliseconds(5), scheduler: MainScheduler.instance).toBlocking().materialize()
 
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
