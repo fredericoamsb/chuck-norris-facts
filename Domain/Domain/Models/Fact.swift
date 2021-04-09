@@ -11,4 +11,11 @@ public struct Fact: Decodable {
     public let url: String?
     public let category: String?
     public let value: String
+
+    internal init(id: String, url: String? = nil, category: String? = nil, value: String) {
+        self.id = id
+        self.url = url
+        self.category = category
+        self.value = value
+    }
 }

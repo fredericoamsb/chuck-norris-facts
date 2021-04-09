@@ -24,8 +24,8 @@ public final class FactsInteractor: FactsInteractorHandling {
         if delayTime == 0 {
             delayTime = 6
         }
-        searchFactsReturnValue = .just([Fact(id: "", url: nil, category: query, value: query),
-                                        Fact(id: "", url: nil, category: query, value: query)])
+        searchFactsReturnValue = .just([Fact(id: "", category: query, value: query),
+                                        Fact(id: "", category: query, value: query)])
         return searchFactsReturnValue.delay(.seconds(x), scheduler: MainScheduler.instance)
     }
 }

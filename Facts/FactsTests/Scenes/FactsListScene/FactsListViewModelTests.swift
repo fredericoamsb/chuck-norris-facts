@@ -63,8 +63,8 @@ class FactsListViewModelTests: XCTestCase {
     }
 
     func test_whenCancelResultReceived_ShouldNotChangeFactsListState() {
-        let state = [FactViewModel(description: "description a", category: nil),
-                     FactViewModel(description: "description b", category: nil)]
+        let state = [FactViewModel(description: "description a"),
+                     FactViewModel(description: "description b")]
         sut.facts.onNext(state)
 
         let cancelButtonTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.cancel)])
@@ -80,8 +80,8 @@ class FactsListViewModelTests: XCTestCase {
     }
 
     func test_whenSearchResultReceived_ShouldChangeFactsList() {
-        let state = [FactViewModel(description: "description a", category: nil),
-                     FactViewModel(description: "description b", category: nil)]
+        let state = [FactViewModel(description: "description a"),
+                     FactViewModel(description: "description b")]
         sut.facts.onNext(state)
 
         let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
@@ -97,8 +97,8 @@ class FactsListViewModelTests: XCTestCase {
     }
 
     func test_whenRequestSearchReturnSuccess_ShouldReturnCorrectFacts() {
-        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", url: nil, category: nil, value: "description a"),
-                                                            Fact(id: "222", url: nil, category: nil, value: "description b")])
+        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", value: "description a"),
+                                                            Fact(id: "222", value: "description b")])
 
         let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
         keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
@@ -109,8 +109,8 @@ class FactsListViewModelTests: XCTestCase {
         scheduler.start()
 
         let factsEvents = factsObserver.events.map { $0.value.element }
-        XCTAssertEqual(factsEvents[2], [Fact(id: "111", url: nil, category: nil, value: "description a"),
-                                        Fact(id: "222", url: nil, category: nil, value: "description b")].asViewModels)
+        XCTAssertEqual(factsEvents[2], [Fact(id: "111", value: "description a"),
+                                        Fact(id: "222", value: "description b")].asViewModels)
     }
 
     func test_whenRequestSearchReturnError_factsListShouldBeEmpty() {
@@ -185,12 +185,12 @@ class FactsListViewModelTests: XCTestCase {
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
         self.factsInteractorMock.testRaceCondition = true
-        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", url: nil, category: nil, value: "1")])
+        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", value: "1")])
         scheduler.scheduleAt(1) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", url: nil, category: nil, value: "2")])
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", value: "2")])
         }
         scheduler.scheduleAt(2) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "3", url: nil, category: nil, value: "3")])
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "3", value: "3")])
         }
 
         scheduler.start()
@@ -200,7 +200,7 @@ class FactsListViewModelTests: XCTestCase {
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
         XCTAssertEqual(factsEvents.count, 5)
-        XCTAssertEqual(factsEvents.last, [Fact(id: "3", url: nil, category: nil, value: "3")].asViewModels)
+        XCTAssertEqual(factsEvents.last, [Fact(id: "3", value: "3")].asViewModels)
     }
 
     func test_whenRequestSearchRaceConditionThanPressCancel_shouldReturnLastRequestMade() {
@@ -213,9 +213,9 @@ class FactsListViewModelTests: XCTestCase {
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
         self.factsInteractorMock.testRaceCondition = true
-        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", url: nil, category: nil, value: "1")])
+        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", value: "1")])
         scheduler.scheduleAt(1) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", url: nil, category: nil, value: "2")])
+            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", value: "2")])
         }
 
         scheduler.start()
@@ -225,6 +225,21 @@ class FactsListViewModelTests: XCTestCase {
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
         XCTAssertEqual(factsEvents.count, 4)
-        XCTAssertEqual(factsEvents.last, [Fact(id: "2", url: nil, category: nil, value: "2")].asViewModels)
+        XCTAssertEqual(factsEvents.last, [Fact(id: "2", value: "2")].asViewModels)
+    }
+
+    func test_whenTapFactShareButton_shouldShowFactCorrectly() {
+        let factShareButtonTapped = scheduler.createHotObservable([.next(0, FactViewModel(description: "fact description", url: "fact url")),
+                                                                   .next(1, FactViewModel(description: "fact 2 description"))])
+        factShareButtonTapped.bind(to: self.sut.factShareButtonAction).disposed(by: self.disposeBag)
+
+        let shareFactObserver = scheduler.createObserver(FactViewModel.self)
+        sut.factShareButtonAction.bind(to: shareFactObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let shareFactEvents = shareFactObserver.events.compactMap { $0.value.element }
+        XCTAssertEqual(shareFactEvents, [FactViewModel(description: "fact description", url: "fact url"),
+                                         FactViewModel(description: "fact 2 description")])
     }
 }
