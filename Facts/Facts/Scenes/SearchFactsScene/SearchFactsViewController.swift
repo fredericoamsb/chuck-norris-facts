@@ -45,4 +45,12 @@ public final class SearchFactsViewController: UISearchContainerViewController {
     public override func loadView() {
         view = SearchFactsView()
     }
+
+    public override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        DispatchQueue.main.async {
+            self.searchController.searchBar.becomeFirstResponder()
+        }
+    }
 }

@@ -61,27 +61,6 @@ class FactListViewControllerTests: XCTestCase {
 
         let searchButtonTappedEvents: [Void] = searchButtonTappedObserver.events.compactMap { $0.value.element }
         XCTAssertEqual(searchButtonTappedEvents.count, 1)
+        XCTAssertTrue(factsCoordinatorMock.calledSearchFact)
     }
-
-    // func test_whenTapFactShareButton_shouldShowShareActivity() {
-    //     factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", value: "description a"),
-    //                                                         Fact(id: "222", value: "description b")])
-    //     let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
-    //     keyboardSearchKeyTapped.bind(to: vm.searchActionResult).disposed(by: self.disposeBag)
-
-    //     let shareFactObserver = scheduler.createObserver(FactViewModel.self)
-    //     vm.factShareButtonAction
-    //         .map { $0 }
-    //         .bind(to: shareFactObserver)
-    //         .disposed(by: disposeBag)
-
-    //     scheduler.start()
-
-    //     let indexPath = IndexPath(row: 0, section: 0)
-    //     let factCell = sut.factsListTableView.cellForRow(at: indexPath) as! FactListCell
-    //     factCell.shareButton.sendActions(for: .touchUpInside)
-
-    //     let shareFactEvents: [FactViewModel] = shareFactObserver.events.compactMap { $0.value.element }
-    //     XCTAssertEqual(shareFactEvents.count, 1)
-    // }
 }
