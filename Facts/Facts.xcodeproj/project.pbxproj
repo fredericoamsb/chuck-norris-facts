@@ -31,6 +31,7 @@
 		B6E333FB2617F01A0058C0B8 /* FactsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E333FA2617F01A0058C0B8 /* FactsListViewModelTests.swift */; };
 		B6E334552618489E0058C0B8 /* FactsInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E334542618489E0058C0B8 /* FactsInteractorMock.swift */; };
 		B6E573A3262160C100A42DD4 /* SearchFactsViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E573A2262160C100A42DD4 /* SearchFactsViewControllerTests.swift */; };
+		B6E573A726216EA700A42DD4 /* SearchFactsViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E573A626216EA700A42DD4 /* SearchFactsViewModelTests.swift */; };
 		D8ED53E7C426AA66E796C3E3 /* Pods_Facts_FactsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE0F4FAD44C3BA4AEAB93248 /* Pods_Facts_FactsTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		B6E333FA2617F01A0058C0B8 /* FactsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsListViewModelTests.swift; sourceTree = "<group>"; };
 		B6E334542618489E0058C0B8 /* FactsInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsInteractorMock.swift; sourceTree = "<group>"; };
 		B6E573A2262160C100A42DD4 /* SearchFactsViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsViewControllerTests.swift; sourceTree = "<group>"; };
+		B6E573A626216EA700A42DD4 /* SearchFactsViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsViewModelTests.swift; sourceTree = "<group>"; };
 		D65FFD7E246E4952334DD3E2 /* Pods-Facts-FactsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Facts-FactsTests.release.xcconfig"; path = "Target Support Files/Pods-Facts-FactsTests/Pods-Facts-FactsTests.release.xcconfig"; sourceTree = "<group>"; };
 		EE0F4FAD44C3BA4AEAB93248 /* Pods_Facts_FactsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Facts_FactsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7F2F9A98BAE4F475B070AD2 /* Pods-App-Facts.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-Facts.debug.xcconfig"; path = "Target Support Files/Pods-App-Facts/Pods-App-Facts.debug.xcconfig"; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				B6E573A2262160C100A42DD4 /* SearchFactsViewControllerTests.swift */,
+				B6E573A626216EA700A42DD4 /* SearchFactsViewModelTests.swift */,
 			);
 			path = SearchFactsScene;
 			sourceTree = "<group>";
@@ -485,6 +488,7 @@
 				B618C21B261A6D82000EAD71 /* FactsCoordinatorMock.swift in Sources */,
 				B6A6CB1A2613F8D50097A2DF /* FactListCellTests.swift in Sources */,
 				B6E573A3262160C100A42DD4 /* SearchFactsViewControllerTests.swift in Sources */,
+				B6E573A726216EA700A42DD4 /* SearchFactsViewModelTests.swift in Sources */,
 				B6E333FB2617F01A0058C0B8 /* FactsListViewModelTests.swift in Sources */,
 				B6268AD9261E859B000BD908 /* FactsListViewControllerTests.swift in Sources */,
 				B6E334552618489E0058C0B8 /* FactsInteractorMock.swift in Sources */,

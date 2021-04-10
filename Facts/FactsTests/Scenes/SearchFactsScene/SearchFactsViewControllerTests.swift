@@ -10,7 +10,6 @@ import RxSwift
 import RxTest
 import RxBlocking
 @testable import Facts
-@testable import Domain
 
 class SearchFactsViewControllerTests: XCTestCase {
 
@@ -18,14 +17,12 @@ class SearchFactsViewControllerTests: XCTestCase {
     var factsCoordinatorMock: SearchFactsCoordinatorMock!
     var sut: SearchFactsViewController!
     var vm: SearchFactsViewModel!
-    var disposeBag: DisposeBag!
 
     override func setUp() {
         scheduler = TestScheduler(initialClock: 0)
         factsCoordinatorMock = SearchFactsCoordinatorMock(scheduler: scheduler)
         vm = SearchFactsViewModel(coordinator: factsCoordinatorMock)
         sut = SearchFactsViewController(viewModel: vm)
-        disposeBag = DisposeBag()
     }
 
     override func tearDown() {
@@ -33,7 +30,6 @@ class SearchFactsViewControllerTests: XCTestCase {
         factsCoordinatorMock = nil
         vm = nil
         sut = nil
-        disposeBag = nil
     }
 
     func test_searchBarPlaceholder() {
@@ -42,11 +38,5 @@ class SearchFactsViewControllerTests: XCTestCase {
 
     func test_searchBarPlaceholder_shouldStartEmpty() {
         XCTAssertEqual(sut.searchController.searchBar.text, "")
-    }
-
-    func test_searchBarPlaceholder_shouldStartFocused() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(50)) {
-            XCTAssertEqual(self.sut.searchController.searchBar.isFirstResponder, true)
-        }
     }
 }

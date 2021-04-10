@@ -241,5 +241,6 @@ class FactsListViewModelTests: XCTestCase {
         let shareFactEvents = shareFactObserver.events.compactMap { $0.value.element }
         XCTAssertEqual(shareFactEvents, [FactViewModel(description: "fact description", url: "fact url"),
                                          FactViewModel(description: "fact 2 description")])
+        XCTAssertTrue(factsCoordinatorMock.calledShareFact)
     }
 }
