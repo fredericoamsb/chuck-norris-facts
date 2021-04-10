@@ -48,6 +48,17 @@ extension SearchFactsCoordinator: FactsListSceneCoordinating {
 
         return viewModel.result
     }
+
+    public func shareFact(_ fact: FactViewModel) {
+        var activityItems = [String]()
+        if let url = fact.url, !url.isEmpty {
+            activityItems.append(url)
+        } else {
+            activityItems.append(fact.description)
+        }
+        let activityViewController = UIActivityViewController(activityItems: activityItems, applicationActivities: nil)
+        navigationController.present(activityViewController, animated: true)
+    }
 }
 
 extension SearchFactsCoordinator: SearchFactsSceneCoordinating {

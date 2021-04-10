@@ -36,7 +36,7 @@ class FactsListViewModelTests: XCTestCase {
         disposeBag = nil
     }
 
-    func test_FactsList_ShouldStartEmpty() {
+    func test_whenAppLaunchs_factsListShouldBeEmpty() {
         let factsObserver = scheduler.createObserver([FactViewModel].self)
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
@@ -46,7 +46,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(facts, [])
     }
 
-    func test_whenSearchButtonTapped_ShouldReceiveResultsCorrectly() {
+    func test_whenSearchButtonTapped_shouldReceiveResultsCorrectly() {
         let searchButtonTappedObserver = scheduler.createObserver(SearchFactsSceneResult.self)
 
         factsCoordinatorMock.showSearchReturnValue = [.next(0, .search("query")),
@@ -62,7 +62,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(resultEvents, [.search("query"), .cancel, .search("")])
     }
 
-    func test_whenCancelResultReceived_ShouldNotChangeFactsListState() {
+    func test_whenCancelResultReceived_shouldNotChangeFactsListState() {
         let state = [FactViewModel(description: "description a"),
                      FactViewModel(description: "description b")]
         sut.facts.onNext(state)
@@ -79,7 +79,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(newState, state)
     }
 
-    func test_whenSearchResultReceived_ShouldChangeFactsList() {
+    func test_whenSearchResultReceived_shouldChangeFactsList() {
         let state = [FactViewModel(description: "description a"),
                      FactViewModel(description: "description b")]
         sut.facts.onNext(state)
@@ -96,7 +96,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertNotEqual(newState, state)
     }
 
-    func test_whenRequestSearchReturnSuccess_ShouldReturnCorrectFacts() {
+    func test_whenRequestSearchReturnSuccess_shouldReturnCorrectFacts() {
         factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", value: "description a"),
                                                             Fact(id: "222", value: "description b")])
 
@@ -226,5 +226,21 @@ class FactsListViewModelTests: XCTestCase {
 
         XCTAssertEqual(factsEvents.count, 4)
         XCTAssertEqual(factsEvents.last, [Fact(id: "2", value: "2")].asViewModels)
+    }
+
+    func test_whenTapFactShareButton_shouldShowFactCorrectly() {
+        let factShareButtonTapped = scheduler.createHotObservable([.next(0, FactViewModel(description: "fact description", url: "fact url")),
+                                                                   .next(1, FactViewModel(description: "fact 2 description"))])
+        factShareButtonTapped.bind(to: self.sut.factShareButtonAction).disposed(by: self.disposeBag)
+
+        let shareFactObserver = scheduler.createObserver(FactViewModel.self)
+        sut.factShareButtonAction.bind(to: shareFactObserver).disposed(by: disposeBag)
+
+        scheduler.start()
+
+        let shareFactEvents = shareFactObserver.events.compactMap { $0.value.element }
+        XCTAssertEqual(shareFactEvents, [FactViewModel(description: "fact description", url: "fact url"),
+                                         FactViewModel(description: "fact 2 description")])
+        XCTAssertTrue(factsCoordinatorMock.calledShareFact)
     }
 }
