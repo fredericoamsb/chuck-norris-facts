@@ -23,4 +23,6 @@ final class SearchFactsCoordinatorMock: FactsListSceneCoordinating {
 
         return fakeSearchButtonTapped.asObservable()
     }
+
+    func shareFact(_ fact: FactViewModel) {}
 }

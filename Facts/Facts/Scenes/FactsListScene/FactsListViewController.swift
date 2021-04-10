@@ -13,7 +13,7 @@ public final class FactsListViewController: UIViewController {
 
     // MARK: Instances
     private let viewModel: FactsListViewModelable
-    private let factsListTableView = UITableView()
+    let factsListTableView = UITableView()
     private let cellIdentifier = "factListCell"
     private let disposeBag = DisposeBag()
 
@@ -49,10 +49,10 @@ public final class FactsListViewController: UIViewController {
         navigationItem.rightBarButtonItem = searchButton
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        setupBindings()
+
         setupFactsListTableView()
         setupLoadingIndicator()
-
-        setupBindings()
     }
 
     private func setupLoadingIndicator() {
@@ -76,8 +76,16 @@ public final class FactsListViewController: UIViewController {
     }
 
     private func setupBindings() {
-        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) { _, fact, cell in
+        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier,
+                                                             cellType: FactListCell.self)) { [weak self] _, fact, cell in
+            guard let self = self else {
+                return
+            }
             cell.set(description: fact.description, category: fact.category)
+            cell.shareButton.rx.tap
+                .map { fact }
+                .bind(to: self.viewModel.factShareButtonAction)
+                .disposed(by: cell.disposeBag)
         }.disposed(by: disposeBag)
 
         viewModel.errorAction.bind { errorMessage in
@@ -94,10 +102,5 @@ public final class FactsListViewController: UIViewController {
         viewModel.isLoading
             .bind(to: loadingView.rx.isAnimating)
             .disposed(by: disposeBag)
-
-//        cell.shareButton.rx.tap
-//            .map { fact }
-//            .bind(to: viewModel.factShareButtonAction)
-//            .disposed(by: cell.disposeBag)
     }
 }
