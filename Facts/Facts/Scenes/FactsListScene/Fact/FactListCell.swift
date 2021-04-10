@@ -53,7 +53,7 @@ final class FactListCell: UITableViewCell {
     })()
 
     lazy var shareButton: UIButton = ({
-        let button = UIButton()
+        let button = UIButton(type: .system)
         let image = UIImage(systemName: "square.and.arrow.up")
         button.setImage(image, for: .normal)
         return button
@@ -80,7 +80,7 @@ final class FactListCell: UITableViewCell {
     private func setupUI() {
         selectionStyle = .none
 
-        addSubview(containerView)
+        contentView.addSubview(containerView)
         containerView.addSubview(containerStackView)
 
         let padding: CGFloat = 16
@@ -103,7 +103,7 @@ final class FactListCell: UITableViewCell {
                                                           bottom: verticalPadding, right: horizontalPadding))
     }
 
-    func set(description: String, category: String?) {
+    func set(description: String, category: String? = nil) {
         infoLabel.text = description
         infoLabel.font = description.count > 80 ? UIFont.preferredFont(forTextStyle: .title2) :
             UIFont.preferredFont(forTextStyle: .title1)

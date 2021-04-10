@@ -11,8 +11,7 @@ import Facts
 class FactsListFactory: BaseFactory, FactsListFactoryProtocol {
 
     func makeFactsListViewController() -> FactsListViewController {
-        let viewModel = resolver.resolveSafe(FactsListViewModelable.self)
-        let viewController = FactsListViewController(viewModel: viewModel)
-        return viewController
+        let factsListViewController = resolver.resolveSafe(FactsListViewController.self)
+        return factsListViewController
     }
 }

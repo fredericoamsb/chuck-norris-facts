@@ -55,6 +55,12 @@ target 'Facts' do
   end
 end
 
+target 'Domain' do
+  project 'Domain/Domain'
+  rx_pods
+  target 'DomainTests'
+end
+
 target 'Networking' do
   project 'Networking/Networking'
   networkingPods

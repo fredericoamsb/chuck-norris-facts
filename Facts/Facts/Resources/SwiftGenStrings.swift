@@ -19,8 +19,16 @@ internal enum L10n {
   }
 
   internal enum FactsList {
-    /// CHUCK NORRIS FACTS
+    /// Chuck Norris Facts
     internal static let title = L10n.tr("Localizable", "FactsList.title")
+    internal enum Alert {
+      /// OK
+      internal static let button = L10n.tr("Localizable", "FactsList.Alert.button")
+      /// Chuck have burned all the facts, but Chuck can bring them back when you least expect it.
+      internal static let message = L10n.tr("Localizable", "FactsList.Alert.message")
+      /// We can't find any facts
+      internal static let title = L10n.tr("Localizable", "FactsList.Alert.title")
+    }
   }
 
   internal enum SearchFacts {

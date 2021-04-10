@@ -47,7 +47,7 @@ class FactListCellTests: XCTestCase {
     }
 
     func test_FactListCell_CategoryShouldBeUncategorized() {
-        sut.set(description: "", category: nil)
+        sut.set(description: "")
 
         XCTAssertEqual(sut.categotyLabel.text, "UNCATEGORIZED")
     }

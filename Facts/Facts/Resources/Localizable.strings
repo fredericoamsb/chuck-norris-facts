@@ -5,7 +5,10 @@
 //  Created by Frederico Augusto on 22/03/21.
 //
 
-"FactsList.title" = "CHUCK NORRIS FACTS";
+"FactsList.title" = "Chuck Norris Facts";
+"FactsList.Alert.title" = "We can't find any facts";
+"FactsList.Alert.message" = "Chuck have burned all the facts, but Chuck can bring them back when you least expect it.";
+"FactsList.Alert.button" = "OK";
 "FactCell.category.uncategorized" = "UNCATEGORIZED";
 "SearchFacts.Label.header" = "Find a random fact by category:";
 "SearchFacts.SearchBar.placeholder" = "Search for facts";

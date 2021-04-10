@@ -16,14 +16,10 @@ class SearchFactsFlowAssembly: Assembly {
 
         // MARK: FactsListScene
         container.register(FactsListSceneCoordinating.self) { _ in searchFactsCoordinator }
-        container.register(FactsListViewModelable.self, factory: {(_: Resolver) in
-            return FactsListViewModel(coordinator: searchFactsCoordinator)
-        })
+        container.autoregister(FactsListViewModelable.self, initializer: FactsListViewModel.init)
 
         // MARK: SearchFactsScene
         container.register(SearchFactsSceneCoordinating.self) { _ in searchFactsCoordinator }
-        container.register(SearchFactsViewModelable.self, factory: {(_: Resolver) in
-            return SearchFactsViewModel(coordinator: searchFactsCoordinator)
-        })
+        container.autoregister(SearchFactsViewModelable.self, initializer: SearchFactsViewModel.init)
     }
 }
