@@ -13,16 +13,19 @@ public final class FactsListViewController: UIViewController {
 
     // MARK: Instances
     private let viewModel: FactsListViewModelable
-    private let factsListTableView = UITableView()
+    let factsListTableView = UITableView()
     private let cellIdentifier = "factListCell"
     private let disposeBag = DisposeBag()
 
-    lazy var searchButton = ({
-        return UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+    lazy var searchButton: UIBarButtonItem = ({
+        let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+        barButton.accessibilityIdentifier = "searchButton"
+        return barButton
     })()
 
     private lazy var loadingView: UIActivityIndicatorView = ({
         let view = UIActivityIndicatorView()
+        view.accessibilityIdentifier = "factsListLoadingView"
         view.style = .large
         return view
     })()
@@ -49,10 +52,10 @@ public final class FactsListViewController: UIViewController {
         navigationItem.rightBarButtonItem = searchButton
         navigationController?.navigationBar.prefersLargeTitles = true
 
+        setupBindings()
+
         setupFactsListTableView()
         setupLoadingIndicator()
-
-        setupBindings()
     }
 
     private func setupLoadingIndicator() {
@@ -66,6 +69,7 @@ public final class FactsListViewController: UIViewController {
     }
 
     private func setupFactsListTableView() {
+        factsListTableView.accessibilityIdentifier = "factsListTableView"
         factsListTableView.separatorStyle = .none
         factsListTableView.register(FactListCell.self, forCellReuseIdentifier: cellIdentifier)
         let headerAndFooter = UIView()
@@ -76,8 +80,16 @@ public final class FactsListViewController: UIViewController {
     }
 
     private func setupBindings() {
-        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier, cellType: FactListCell.self)) { _, fact, cell in
+        viewModel.facts.bind(to: factsListTableView.rx.items(cellIdentifier: cellIdentifier,
+                                                             cellType: FactListCell.self)) { [weak self] _, fact, cell in
+            guard let self = self else {
+                return
+            }
             cell.set(description: fact.description, category: fact.category)
+            cell.shareButton.rx.tap
+                .map { fact }
+                .bind(to: self.viewModel.factShareButtonAction)
+                .disposed(by: cell.disposeBag)
         }.disposed(by: disposeBag)
 
         viewModel.errorAction.bind { errorMessage in

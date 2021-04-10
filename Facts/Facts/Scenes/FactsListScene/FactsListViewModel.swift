@@ -13,28 +13,31 @@ import Domain
 public protocol FactsListSceneCoordinating {
 
     func showSearch() -> Observable<SearchFactsSceneResult>
+    func shareFact(_ fact: FactViewModel)
 }
 
 public protocol FactsListViewModelable {
 
-    // outputs
+    // MARK: outputs
     var facts: BehaviorSubject<[FactViewModel]> { get }
     var isLoading: PublishSubject<Bool> { get }
     var errorAction: PublishSubject<String> { get }
-    // inputs
+    // MARK: inputs
     var searchAction: PublishRelay<Void> { get }
     var searchActionResult: PublishRelay<SearchFactsSceneResult> { get }
+    var factShareButtonAction: PublishRelay<FactViewModel> { get }
 }
 
 public final class FactsListViewModel: FactsListViewModelable {
 
-    // outputs
+    // MARK: outputs
     public var facts = BehaviorSubject(value: [FactViewModel]())
     public var isLoading = PublishSubject<Bool>()
     public var errorAction = PublishSubject<String>()
-    // inputs
+    // MARK: inputs
     public var searchAction = PublishRelay<Void>()
     public var searchActionResult = PublishRelay<SearchFactsSceneResult>()
+    public var factShareButtonAction = PublishRelay<FactViewModel>()
 
     let disposeBag = DisposeBag()
 
@@ -72,6 +75,10 @@ public final class FactsListViewModel: FactsListViewModelable {
             case .cancel:
                 break
             }
+        }.disposed(by: disposeBag)
+
+        factShareButtonAction.bind { fact in
+            coordinator.shareFact(fact)
         }.disposed(by: disposeBag)
     }
 }
