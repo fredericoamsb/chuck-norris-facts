@@ -94,10 +94,5 @@ public final class FactsListViewController: UIViewController {
         viewModel.isLoading
             .bind(to: loadingView.rx.isAnimating)
             .disposed(by: disposeBag)
-
-//        cell.shareButton.rx.tap
-//            .map { fact }
-//            .bind(to: viewModel.factShareButtonAction)
-//            .disposed(by: cell.disposeBag)
     }
 }

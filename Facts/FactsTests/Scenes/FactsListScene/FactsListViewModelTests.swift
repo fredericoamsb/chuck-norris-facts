@@ -227,19 +227,4 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(factsEvents.count, 4)
         XCTAssertEqual(factsEvents.last, [Fact(id: "2", value: "2")].asViewModels)
     }
-
-    func test_whenTapFactShareButton_shouldShowFactCorrectly() {
-        let factShareButtonTapped = scheduler.createHotObservable([.next(0, FactViewModel(description: "fact description", url: "fact url")),
-                                                                   .next(1, FactViewModel(description: "fact 2 description"))])
-        factShareButtonTapped.bind(to: self.sut.factShareButtonAction).disposed(by: self.disposeBag)
-
-        let shareFactObserver = scheduler.createObserver(FactViewModel.self)
-        sut.factShareButtonAction.bind(to: shareFactObserver).disposed(by: disposeBag)
-
-        scheduler.start()
-
-        let shareFactEvents = shareFactObserver.events.compactMap { $0.value.element }
-        XCTAssertEqual(shareFactEvents, [FactViewModel(description: "fact description", url: "fact url"),
-                                         FactViewModel(description: "fact 2 description")])
-    }
 }
