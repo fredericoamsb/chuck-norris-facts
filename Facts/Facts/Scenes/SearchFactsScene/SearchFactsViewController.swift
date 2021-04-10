@@ -19,6 +19,7 @@ public final class SearchFactsViewController: UISearchContainerViewController {
         let searchController = UISearchController()
         searchController.searchBar.showsCancelButton = true
         let searchBar = searchController.searchBar
+        searchBar.accessibilityIdentifier = "searchBar"
         searchBar.placeholder = L10n.SearchFacts.SearchBar.placeholder
         searchController.hidesNavigationBarDuringPresentation = false
 
@@ -44,6 +45,7 @@ public final class SearchFactsViewController: UISearchContainerViewController {
     // MARK: Lifecycle
     public override func loadView() {
         view = SearchFactsView()
+        view.accessibilityIdentifier = "searchFactsView"
     }
 
     public override func viewDidAppear(_ animated: Bool) {

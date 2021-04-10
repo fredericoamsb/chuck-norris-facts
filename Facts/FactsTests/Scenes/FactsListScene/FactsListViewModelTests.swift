@@ -36,7 +36,7 @@ class FactsListViewModelTests: XCTestCase {
         disposeBag = nil
     }
 
-    func test_FactsList_ShouldStartEmpty() {
+    func test_whenAppLaunchs_factsListShouldBeEmpty() {
         let factsObserver = scheduler.createObserver([FactViewModel].self)
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
@@ -46,7 +46,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(facts, [])
     }
 
-    func test_whenSearchButtonTapped_ShouldReceiveResultsCorrectly() {
+    func test_whenSearchButtonTapped_shouldReceiveResultsCorrectly() {
         let searchButtonTappedObserver = scheduler.createObserver(SearchFactsSceneResult.self)
 
         factsCoordinatorMock.showSearchReturnValue = [.next(0, .search("query")),
@@ -62,7 +62,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(resultEvents, [.search("query"), .cancel, .search("")])
     }
 
-    func test_whenCancelResultReceived_ShouldNotChangeFactsListState() {
+    func test_whenCancelResultReceived_shouldNotChangeFactsListState() {
         let state = [FactViewModel(description: "description a"),
                      FactViewModel(description: "description b")]
         sut.facts.onNext(state)
@@ -79,7 +79,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertEqual(newState, state)
     }
 
-    func test_whenSearchResultReceived_ShouldChangeFactsList() {
+    func test_whenSearchResultReceived_shouldChangeFactsList() {
         let state = [FactViewModel(description: "description a"),
                      FactViewModel(description: "description b")]
         sut.facts.onNext(state)
@@ -96,7 +96,7 @@ class FactsListViewModelTests: XCTestCase {
         XCTAssertNotEqual(newState, state)
     }
 
-    func test_whenRequestSearchReturnSuccess_ShouldReturnCorrectFacts() {
+    func test_whenRequestSearchReturnSuccess_shouldReturnCorrectFacts() {
         factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", value: "description a"),
                                                             Fact(id: "222", value: "description b")])
 

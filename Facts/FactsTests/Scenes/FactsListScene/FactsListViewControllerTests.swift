@@ -41,11 +41,11 @@ class FactListViewControllerTests: XCTestCase {
         disposeBag = nil
     }
 
-    func test_Title() {
+    func test_title_shouldBeCorrect() {
         XCTAssertEqual(L10n.FactsList.title, sut.title)
     }
 
-    func test_SearchButtonIcon() {
+    func test_searchButtonIcon_shouldBeCorrect() {
         XCTAssertTrue(sut.navigationItem.rightBarButtonItem!.description.contains("systemItem=Search"))
     }
 

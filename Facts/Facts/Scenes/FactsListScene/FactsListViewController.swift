@@ -17,12 +17,15 @@ public final class FactsListViewController: UIViewController {
     private let cellIdentifier = "factListCell"
     private let disposeBag = DisposeBag()
 
-    lazy var searchButton = ({
-        return UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+    lazy var searchButton: UIBarButtonItem = ({
+        let barButton = UIBarButtonItem(barButtonSystemItem: .search, target: nil, action: nil)
+        barButton.accessibilityIdentifier = "searchButton"
+        return barButton
     })()
 
     private lazy var loadingView: UIActivityIndicatorView = ({
         let view = UIActivityIndicatorView()
+        view.accessibilityIdentifier = "factsListLoadingView"
         view.style = .large
         return view
     })()
@@ -66,6 +69,7 @@ public final class FactsListViewController: UIViewController {
     }
 
     private func setupFactsListTableView() {
+        factsListTableView.accessibilityIdentifier = "factsListTableView"
         factsListTableView.separatorStyle = .none
         factsListTableView.register(FactListCell.self, forCellReuseIdentifier: cellIdentifier)
         let headerAndFooter = UIView()

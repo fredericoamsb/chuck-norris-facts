@@ -54,6 +54,7 @@ final class FactListCell: UITableViewCell {
 
     lazy var shareButton: UIButton = ({
         let button = UIButton(type: .system)
+        button.accessibilityIdentifier = "shareButton"
         let image = UIImage(systemName: "square.and.arrow.up")
         button.setImage(image, for: .normal)
         return button
