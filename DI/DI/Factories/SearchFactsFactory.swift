@@ -10,9 +10,8 @@ import Facts
 
 class SearchFactsFactory: BaseFactory, SearchFactsFactoryProtocol {
 
-    func makeSearchFactsViewController() -> (SearchFactsViewController, SearchFactsViewModelable) {
-        let viewModel = resolver.resolveSafe(SearchFactsViewModelable.self)
-        let viewController = SearchFactsViewController(viewModel: viewModel)
-        return (viewController, viewModel)
+    func makeSearchFactsViewController() -> SearchFactsViewController {
+        let searchFactsViewController = resolver.resolveSafe(SearchFactsViewController.self)
+        return searchFactsViewController
     }
 }

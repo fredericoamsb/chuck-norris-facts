@@ -10,7 +10,7 @@ import RxSwift
 
 public final class SearchFactsViewController: UISearchContainerViewController {
 
-    private var viewModel: SearchFactsViewModelable
+    let viewModel: SearchFactsViewModelable
     private let disposeBag = DisposeBag()
 
     public init(viewModel: SearchFactsViewModelable) {
