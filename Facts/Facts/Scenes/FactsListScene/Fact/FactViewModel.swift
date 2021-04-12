@@ -16,7 +16,7 @@ public final class FactViewModel: Equatable {
 
     public init(description: String, category: String? = nil, url: String? = nil) {
         self.description = description
-        self.category = category
+        self.category = category?.uppercased()
         self.url = url
     }
 
@@ -28,7 +28,7 @@ public final class FactViewModel: Equatable {
 extension Fact {
 
     var asViewModel: FactViewModel {
-        FactViewModel(description: self.value, category: self.category, url: self.url)
+        FactViewModel(description: self.value, category: self.categories.first, url: self.url)
     }
 }
 

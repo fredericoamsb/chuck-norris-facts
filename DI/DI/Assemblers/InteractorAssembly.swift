@@ -11,8 +11,6 @@ import Domain
 class InteractorAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(FactsInteractorHandling.self) { _ in
-            return FactsInteractor()
-        }
+        container.autoregister(FactsInteractorHandling.self, initializer: FactsInteractor.init)
     }
 }

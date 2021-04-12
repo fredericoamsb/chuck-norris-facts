@@ -7,26 +7,29 @@
 
 import RxSwift
 
-public protocol FactsInteractorHandling {
+protocol FactsInteractionHolding {
 
-    func searchFacts(query: String) -> Observable<[Fact]>
+    var repository: FactsRepositoryProtocol { get }
+    init(repository: FactsRepositoryProtocol)
 }
 
-public final class FactsInteractor: FactsInteractorHandling {
+public protocol FactsInteractorHandling {
 
-    public init() {}
+    func searchFacts(query: String) -> Single<SearchFactsResponse>
+}
 
-    public func searchFacts(query: String) -> Observable<[Fact]> {
-        let success: Observable<[Fact]> = .just([Fact(id: "", category: query, value: query),
-                                                 Fact(id: "", category: query, value: query)])
-        let error: Observable<[Fact]> = .error(NSError())
+public final class FactsInteractor: FactsInteractionHolding {
 
-        if LaunchArguments.contains(.mockDelay) {
-            return success.delay(.milliseconds(500), scheduler: MainScheduler.instance)
-        }
-        if LaunchArguments.contains(.mockError) {
-            return error
-        }
-        return success
+    var repository: FactsRepositoryProtocol
+
+    public init(repository: FactsRepositoryProtocol) {
+        self.repository = repository
+    }
+}
+
+extension FactsInteractor: FactsInteractorHandling {
+
+    public func searchFacts(query: String) -> Single<SearchFactsResponse> {
+        return repository.searchFacts(query: query)
     }
 }

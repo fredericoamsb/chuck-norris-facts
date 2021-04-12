@@ -97,8 +97,7 @@ class FactsListViewModelTests: XCTestCase {
     }
 
     func test_whenRequestSearchReturnSuccess_shouldReturnCorrectFacts() {
-        factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "111", value: "description a"),
-                                                            Fact(id: "222", value: "description b")])
+        factsInteractorMock.returnType = .response1
 
         let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
         keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
@@ -109,12 +108,11 @@ class FactsListViewModelTests: XCTestCase {
         scheduler.start()
 
         let factsEvents = factsObserver.events.map { $0.value.element }
-        XCTAssertEqual(factsEvents[2], [Fact(id: "111", value: "description a"),
-                                        Fact(id: "222", value: "description b")].asViewModels)
+        XCTAssertEqual(factsEvents.last, factsInteractorMock.response1.result?.asViewModels)
     }
 
     func test_whenRequestSearchReturnError_factsListShouldBeEmpty() {
-        factsInteractorMock.searchFactsReturnValue = .error(NSError())
+        factsInteractorMock.returnType = .error
 
         let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
         keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
@@ -129,7 +127,7 @@ class FactsListViewModelTests: XCTestCase {
     }
 
     func test_whenRequestSearchReturnError_showAlertError() {
-        factsInteractorMock.searchFactsReturnValue = .error(NSError())
+        factsInteractorMock.returnType = .error
 
         let keyboardSearchKeyTapped = scheduler.createHotObservable([.next(0, SearchFactsSceneResult.search("query"))])
         keyboardSearchKeyTapped.bind(to: self.sut.searchActionResult).disposed(by: self.disposeBag)
@@ -163,7 +161,7 @@ class FactsListViewModelTests: XCTestCase {
         let isLoadingObserver = scheduler.createObserver(Bool.self)
         sut.isLoading.bind(to: isLoadingObserver).disposed(by: disposeBag)
 
-        self.factsInteractorMock.testRaceCondition = true
+        self.factsInteractorMock.withRaceCondition = true
         scheduler.start()
 
         let whenRequest = isLoadingObserver.events.compactMap { $0.value.element }.first!
@@ -184,13 +182,13 @@ class FactsListViewModelTests: XCTestCase {
         let factsObserver = scheduler.createObserver([FactViewModel].self)
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
-        self.factsInteractorMock.testRaceCondition = true
-        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", value: "1")])
+        self.factsInteractorMock.withRaceCondition = true
+        self.factsInteractorMock.returnType = .response1
         scheduler.scheduleAt(1) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", value: "2")])
+            self.factsInteractorMock.returnType = .response2
         }
         scheduler.scheduleAt(2) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "3", value: "3")])
+            self.factsInteractorMock.returnType = .response3
         }
 
         scheduler.start()
@@ -200,7 +198,7 @@ class FactsListViewModelTests: XCTestCase {
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
         XCTAssertEqual(factsEvents.count, 5)
-        XCTAssertEqual(factsEvents.last, [Fact(id: "3", value: "3")].asViewModels)
+        XCTAssertEqual(factsEvents.last, factsInteractorMock.response3.result?.asViewModels)
     }
 
     func test_whenRequestSearchRaceConditionThanPressCancel_shouldReturnLastRequestMade() {
@@ -212,10 +210,10 @@ class FactsListViewModelTests: XCTestCase {
         let factsObserver = scheduler.createObserver([FactViewModel].self)
         sut.facts.bind(to: factsObserver).disposed(by: disposeBag)
 
-        self.factsInteractorMock.testRaceCondition = true
-        self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "1", value: "1")])
+        self.factsInteractorMock.withRaceCondition = true
+        self.factsInteractorMock.returnType = .response1
         scheduler.scheduleAt(1) {
-            self.factsInteractorMock.searchFactsReturnValue = .just([Fact(id: "2", value: "2")])
+            self.factsInteractorMock.returnType = .response2
         }
 
         scheduler.start()
@@ -225,7 +223,7 @@ class FactsListViewModelTests: XCTestCase {
         let factsEvents = factsObserver.events.compactMap { $0.value.element }
 
         XCTAssertEqual(factsEvents.count, 4)
-        XCTAssertEqual(factsEvents.last, [Fact(id: "2", value: "2")].asViewModels)
+        XCTAssertEqual(factsEvents.last, factsInteractorMock.response2.result?.asViewModels)
     }
 
     func test_whenTapFactShareButton_shouldShowFactCorrectly() {

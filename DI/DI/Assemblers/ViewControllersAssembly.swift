@@ -6,7 +6,6 @@
 //
 
 import Swinject
-import SwinjectAutoregistration
 import Facts
 
 class ViewControllersAssembly: Assembly {

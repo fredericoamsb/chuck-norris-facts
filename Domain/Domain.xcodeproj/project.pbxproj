@@ -14,6 +14,8 @@
 		B6A6CA8E2613F5370097A2DF /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CA842613F5370097A2DF /* Domain.framework */; };
 		B6A6CA932613F5370097A2DF /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA922613F5370097A2DF /* DomainTests.swift */; };
 		B6A6CA952613F5370097A2DF /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A6CA872613F5370097A2DF /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6B9302B26229838001B333F /* SearchFactsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9302A26229838001B333F /* SearchFactsResponse.swift */; };
+		B6B9303626229B97001B333F /* FactsRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9303526229B97001B333F /* FactsRepositoryProtocol.swift */; };
 		B6C800AA26219F51004F26AE /* LaunchArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C800A926219F51004F26AE /* LaunchArgument.swift */; };
 		B6E3345A26184B010058C0B8 /* Fact.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6E3345926184B010058C0B8 /* Fact.swift */; };
 /* End PBXBuildFile section */
@@ -41,6 +43,8 @@
 		B6A6CA8D2613F5370097A2DF /* DomainTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DomainTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6CA922613F5370097A2DF /* DomainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainTests.swift; sourceTree = "<group>"; };
 		B6A6CA942613F5370097A2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6B9302A26229838001B333F /* SearchFactsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsResponse.swift; sourceTree = "<group>"; };
+		B6B9303526229B97001B333F /* FactsRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsRepositoryProtocol.swift; sourceTree = "<group>"; };
 		B6C800A926219F51004F26AE /* LaunchArgument.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchArgument.swift; sourceTree = "<group>"; };
 		B6E3345926184B010058C0B8 /* Fact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fact.swift; sourceTree = "<group>"; };
 		DB54AB1809BE34A1E2B611DD /* Pods_Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				B69329DA2619745400F2DD69 /* Interactors */,
+				B6B9303426229B79001B333F /* Repositories */,
 				B6E3345826184AE00058C0B8 /* Models */,
+				B6B9302926229822001B333F /* Responses */,
 				B6C800A826219F3A004F26AE /* UITest */,
 				B6932A52261993A600F2DD69 /* InteractorFactoryProtocol.swift */,
 				B6A6CA872613F5370097A2DF /* Domain.h */,
@@ -137,6 +143,22 @@
 				B6A6CA942613F5370097A2DF /* Info.plist */,
 			);
 			path = DomainTests;
+			sourceTree = "<group>";
+		};
+		B6B9302926229822001B333F /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				B6B9302A26229838001B333F /* SearchFactsResponse.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
+		B6B9303426229B79001B333F /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B6B9303526229B97001B333F /* FactsRepositoryProtocol.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		B6C800A826219F3A004F26AE /* UITest */ = {
@@ -335,6 +357,8 @@
 				B6C800AA26219F51004F26AE /* LaunchArgument.swift in Sources */,
 				B6932A53261993A600F2DD69 /* InteractorFactoryProtocol.swift in Sources */,
 				B6E3345A26184B010058C0B8 /* Fact.swift in Sources */,
+				B6B9302B26229838001B333F /* SearchFactsResponse.swift in Sources */,
+				B6B9303626229B97001B333F /* FactsRepositoryProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

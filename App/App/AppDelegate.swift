@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AlamofireNetworkActivityLogger
 import Domain
 
 @main
@@ -13,10 +14,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if DEBUG
+        setupLogger()
         setupUITests()
         #endif
 
         return true
+    }
+
+    private func setupLogger() {
+        NetworkActivityLogger.shared.startLogging()
+        NetworkActivityLogger.shared.level = .debug
     }
 
     private func setupUITests() {
