@@ -1,0 +1,16 @@
+{
+  "total": 1,
+  "result": [
+    {
+      "categories": [
+
+      ],
+      "created_at": "2020-01-05 13:42:21.795084",
+      "icon_url": "https://assets.chucknorris.host/img/avatar/chuck-norris.png",
+      "id": "BAc2nqvpQZu_BZ3AG76Yow",
+      "updated_at": "2020-01-05 13:42:21.795084",
+      "url": "https://api.chucknorris.io/jokes/BAc2nqvpQZu_BZ3AG76Yow",
+      "value": "Chuck Norris was attacked by a vicious pit bull and it ended up with a trip to the hospital. The Vet at the Animall Hospital said there was a 20% chance the pit bull would pull through."
+    }
+  ]
+}

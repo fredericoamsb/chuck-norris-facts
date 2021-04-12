@@ -7,6 +7,7 @@
 
 import UIKit
 import Swinject
+import SwinjectAutoregistration
 import AppNavigation
 
 public class DependencyInjector {
@@ -19,6 +20,8 @@ public class DependencyInjector {
 
     public func build(completion: (_ appCoordinator: AppCoordinator) -> Void) {
         let assembler = Assembler([
+            RepositoryFactoryAssembly(),
+            RepositoryAssembly(),
             InteractorFactoryAssembly(),
             InteractorAssembly(),
             CoordinatorFactoryAssembly(),

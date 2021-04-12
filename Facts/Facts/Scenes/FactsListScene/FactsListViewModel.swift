@@ -61,15 +61,19 @@ public final class FactsListViewModel: FactsListViewModelable {
                 self.facts.onNext([])
                 self.isLoading.onNext(true)
                 interactor.searchFacts(query: query)
-                    .retry(3)
+                    .asObservable()
                     .takeUntil(self.searchActionResult
                                 .filter { $0.case == .search }.asObservable())
-                    .subscribe { facts in
-                        self.facts.onNext(facts.asViewModels)
+                    .subscribe { response in
                         self.isLoading.onNext(false)
-                    } onError: { _ in
-                        self.errorAction.onNext(L10n.FactsList.Alert.message)
+                        if let facts = response.result {
+                            self.facts.onNext(facts.asViewModels)
+                        } else {
+                            self.errorAction.onNext(response.message ?? L10n.FactsList.Alert.message)
+                        }
+                    } onError: { error in
                         self.isLoading.onNext(false)
+                        self.errorAction.onNext(error.localizedDescription)
                     }
                     .disposed(by: self.disposeBag)
             case .cancel:

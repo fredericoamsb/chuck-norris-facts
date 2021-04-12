@@ -1,9 +1,6 @@
 use_frameworks!
 workspace 'ChuckNorrisFacts.xcworkspace'
 
-# version
-platform :ios, '9.0'
-
 # defs
 
 def rx_pods
@@ -22,7 +19,8 @@ def tools
 end
 
 def networkingPods
-  pod 'RxAlamofire'
+  pod 'Moya/RxSwift'
+  pod 'AlamofireNetworkActivityLogger'
 end
 
 def diPods

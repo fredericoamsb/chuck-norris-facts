@@ -9,13 +9,13 @@ public struct Fact: Decodable {
 
     public let id: String
     public let url: String?
-    public let category: String?
+    public let categories: [String]
     public let value: String
 
-    internal init(id: String, url: String? = nil, category: String? = nil, value: String) {
+    public init(id: String, url: String? = nil, categories: [String] = [], value: String) {
         self.id = id
         self.url = url
-        self.category = category
+        self.categories = categories
         self.value = value
     }
 }

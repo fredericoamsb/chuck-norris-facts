@@ -11,8 +11,6 @@ import Domain
 class InteractorFactoryAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(InteractorFactoryProtocol.self) { resolver in
-            return InteractorFactory(resolver: resolver)
-        }
+        container.autoregister(InteractorFactoryProtocol.self, initializer: InteractorFactory.init)
     }
 }
