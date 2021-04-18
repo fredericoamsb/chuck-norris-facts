@@ -14,14 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         #if DEBUG
-        setupLogger()
+        setupNetworkLogger()
         setupUITests()
         #endif
 
         return true
     }
 
-    private func setupLogger() {
+    private func setupNetworkLogger() {
         NetworkActivityLogger.shared.startLogging()
         NetworkActivityLogger.shared.level = .debug
     }

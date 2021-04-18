@@ -19,12 +19,12 @@ public class SearchFactsCoordinator: Coordinator {
 
     public var childCoordinators: [Coordinator] = []
     public var navigationController: UINavigationController
-    private let factsListFactory: FactsListFactoryProtocol
-    private let searchFactsFactory: SearchFactsFactoryProtocol
+    private let factsListFactory: FactsListManufacturing
+    private let searchFactsFactory: SearchFactsManufacturing
 
     public init(navigationController: UINavigationController,
-                factsListFactory: FactsListFactoryProtocol,
-                searchFactsFactory: SearchFactsFactoryProtocol) {
+                factsListFactory: FactsListManufacturing,
+                searchFactsFactory: SearchFactsManufacturing) {
 
         self.navigationController = navigationController
         self.factsListFactory = factsListFactory

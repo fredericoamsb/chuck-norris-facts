@@ -10,7 +10,6 @@
 		0D465D5F93CCF4D0F239BA31 /* Pods_Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB54AB1809BE34A1E2B611DD /* Pods_Domain.framework */; };
 		B02C52468284299094F1FBF3 /* Pods_Domain_DomainTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB92F007C2A31DE7BD5D7924 /* Pods_Domain_DomainTests.framework */; };
 		B69329DC2619746900F2DD69 /* FactsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B69329DB2619746900F2DD69 /* FactsInteractor.swift */; };
-		B6932A53261993A600F2DD69 /* InteractorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6932A52261993A600F2DD69 /* InteractorFactoryProtocol.swift */; };
 		B6A6CA8E2613F5370097A2DF /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CA842613F5370097A2DF /* Domain.framework */; };
 		B6A6CA932613F5370097A2DF /* DomainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA922613F5370097A2DF /* DomainTests.swift */; };
 		B6A6CA952613F5370097A2DF /* Domain.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A6CA872613F5370097A2DF /* Domain.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -36,7 +35,6 @@
 		B06D13364A8D7506339E2294 /* Pods-Domain.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.debug.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.debug.xcconfig"; sourceTree = "<group>"; };
 		B0B47A6CE5848CBEC1C4B9F6 /* Pods-Domain.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Domain.release.xcconfig"; path = "Target Support Files/Pods-Domain/Pods-Domain.release.xcconfig"; sourceTree = "<group>"; };
 		B69329DB2619746900F2DD69 /* FactsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsInteractor.swift; sourceTree = "<group>"; };
-		B6932A52261993A600F2DD69 /* InteractorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorFactoryProtocol.swift; sourceTree = "<group>"; };
 		B6A6CA842613F5370097A2DF /* Domain.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Domain.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6CA872613F5370097A2DF /* Domain.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Domain.h; sourceTree = "<group>"; };
 		B6A6CA882613F5370097A2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 				B6E3345826184AE00058C0B8 /* Models */,
 				B6B9302926229822001B333F /* Responses */,
 				B6C800A826219F3A004F26AE /* UITest */,
-				B6932A52261993A600F2DD69 /* InteractorFactoryProtocol.swift */,
 				B6A6CA872613F5370097A2DF /* Domain.h */,
 				B6A6CA882613F5370097A2DF /* Info.plist */,
 			);
@@ -355,7 +352,6 @@
 			files = (
 				B69329DC2619746900F2DD69 /* FactsInteractor.swift in Sources */,
 				B6C800AA26219F51004F26AE /* LaunchArgument.swift in Sources */,
-				B6932A53261993A600F2DD69 /* InteractorFactoryProtocol.swift in Sources */,
 				B6E3345A26184B010058C0B8 /* Fact.swift in Sources */,
 				B6B9302B26229838001B333F /* SearchFactsResponse.swift in Sources */,
 				B6B9303626229B97001B333F /* FactsRepositoryProtocol.swift in Sources */,

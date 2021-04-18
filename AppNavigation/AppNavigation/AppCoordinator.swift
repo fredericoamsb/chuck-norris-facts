@@ -12,9 +12,9 @@ public class AppCoordinator: Coordinator {
 
     public var navigationController: UINavigationController
     public var childCoordinators: [Coordinator] = []
-    let coordinatorFactory: CoordinatorFactoryProtocol
+    let coordinatorFactory: CoordinatorManufacturing
 
-    public init(navigationController: UINavigationController, coordinatorFactory: CoordinatorFactoryProtocol) {
+    public init(navigationController: UINavigationController, coordinatorFactory: CoordinatorManufacturing) {
         self.navigationController = navigationController
         self.coordinatorFactory = coordinatorFactory
     }

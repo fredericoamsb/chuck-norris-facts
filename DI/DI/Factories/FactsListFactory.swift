@@ -8,10 +8,9 @@
 import Swinject
 import Facts
 
-class FactsListFactory: BaseFactory, FactsListFactoryProtocol {
+class FactsListFactory: BaseFactory, FactsListManufacturing {
 
     func makeFactsListViewController() -> FactsListViewController {
-        let factsListViewController = resolver.resolveSafe(FactsListViewController.self)
-        return factsListViewController
+        FactsListViewController(viewModel: resolver.resolveSafe(FactsListViewModelable.self))
     }
 }

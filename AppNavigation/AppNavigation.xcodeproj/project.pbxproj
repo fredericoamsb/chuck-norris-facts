@@ -11,9 +11,8 @@
 		B6A6CA002613EBD50097A2DF /* AppNavigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9FF2613EBD50097A2DF /* AppNavigationTests.swift */; };
 		B6A6CA022613EBD50097A2DF /* AppNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = B6A6C9F42613EBD50097A2DF /* AppNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B6A6CA0E2613EC6C0097A2DF /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA0D2613EC6C0097A2DF /* AppCoordinator.swift */; };
-		B6A6CA142613EF350097A2DF /* CoordinatorFactoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA132613EF350097A2DF /* CoordinatorFactoryProtocol.swift */; };
-		B6A6CAE62613F7200097A2DF /* Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE52613F7200097A2DF /* Facts.framework */; };
-		B6A6CAE72613F7200097A2DF /* Facts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE52613F7200097A2DF /* Facts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B6A6CA142613EF350097A2DF /* CoordinatorManufacturing.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CA132613EF350097A2DF /* CoordinatorManufacturing.swift */; };
+		B6B36509262B0A13006581F3 /* Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6B36508262B0A13006581F3 /* Facts.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,20 +25,6 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B6A6CAE82613F7200097A2DF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B6A6CAE72613F7200097A2DF /* Facts.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		B6A6C9F12613EBD50097A2DF /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6C9F42613EBD50097A2DF /* AppNavigation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppNavigation.h; sourceTree = "<group>"; };
@@ -48,8 +33,9 @@
 		B6A6C9FF2613EBD50097A2DF /* AppNavigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationTests.swift; sourceTree = "<group>"; };
 		B6A6CA012613EBD50097A2DF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6A6CA0D2613EC6C0097A2DF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		B6A6CA132613EF350097A2DF /* CoordinatorFactoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryProtocol.swift; sourceTree = "<group>"; };
+		B6A6CA132613EF350097A2DF /* CoordinatorManufacturing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorManufacturing.swift; sourceTree = "<group>"; };
 		B6A6CAE52613F7200097A2DF /* Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6B36508262B0A13006581F3 /* Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A6CAE62613F7200097A2DF /* Facts.framework in Frameworks */,
+				B6B36509262B0A13006581F3 /* Facts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,7 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A6CA0D2613EC6C0097A2DF /* AppCoordinator.swift */,
-				B6A6CA132613EF350097A2DF /* CoordinatorFactoryProtocol.swift */,
+				B6A6CA132613EF350097A2DF /* CoordinatorManufacturing.swift */,
 				B6A6C9F42613EBD50097A2DF /* AppNavigation.h */,
 				B6A6C9F52613EBD50097A2DF /* Info.plist */,
 			);
@@ -114,6 +100,7 @@
 		B6A6CAE42613F7200097A2DF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B6B36508262B0A13006581F3 /* Facts.framework */,
 				B6A6CAE52613F7200097A2DF /* Facts.framework */,
 			);
 			name = Frameworks;
@@ -141,7 +128,6 @@
 				B6A6C9ED2613EBD50097A2DF /* Sources */,
 				B6A6C9EE2613EBD50097A2DF /* Frameworks */,
 				B6A6C9EF2613EBD50097A2DF /* Resources */,
-				B6A6CAE82613F7200097A2DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -229,7 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6A6CA142613EF350097A2DF /* CoordinatorFactoryProtocol.swift in Sources */,
+				B6A6CA142613EF350097A2DF /* CoordinatorManufacturing.swift in Sources */,
 				B6A6CA0E2613EC6C0097A2DF /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +381,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Fred.AppNavigation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -422,7 +408,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Fred.AppNavigation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
-				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

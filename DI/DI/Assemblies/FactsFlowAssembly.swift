@@ -9,7 +9,7 @@ import Swinject
 import Facts
 import AppNavigation
 
-class SearchFactsFlowAssembly: Assembly {
+class FactsFlowAssembly: Assembly {
 
     func assemble(container: Container) {
         let searchFactsCoordinator = container.resolveSafe(SearchFactsCoordinator.self)

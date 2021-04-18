@@ -11,8 +11,8 @@ import AppNavigation
 class CoordinatorFactoryAssembly: Assembly {
 
     func assemble(container: Container) {
-        container.register(CoordinatorFactoryProtocol.self) { resolver in
-            return CoordinatorFactory(resolver: resolver)
+        container.register(CoordinatorManufacturing.self) { resolver in
+            CoordinatorFactory(resolver: resolver)
         }
     }
 }
