@@ -6,7 +6,7 @@
 //
 
 import RxSwift
-import RxCocoa
+import RxRelay
 
 public protocol SearchFactsSceneCoordinating {
 
