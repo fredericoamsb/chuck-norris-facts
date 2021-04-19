@@ -7,7 +7,7 @@
 
 import UIKit
 import RxSwift
-import RxCocoa
+import RxRelay
 import Domain
 
 public protocol FactsListSceneCoordinating {
@@ -18,26 +18,26 @@ public protocol FactsListSceneCoordinating {
 
 public protocol FactsListViewModelable {
 
-    // MARK: outputs
-    var facts: BehaviorSubject<[FactViewModel]> { get }
-    var isLoading: PublishSubject<Bool> { get }
-    var errorAction: PublishSubject<String> { get }
     // MARK: inputs
     var searchAction: PublishRelay<Void> { get }
     var searchActionResult: PublishRelay<SearchFactsSceneResult> { get }
     var factShareButtonAction: PublishRelay<FactViewModel> { get }
+    // MARK: outputs
+    var facts: BehaviorSubject<[FactViewModel]> { get }
+    var isLoading: PublishSubject<Bool> { get }
+    var errorAction: PublishSubject<String> { get }
 }
 
 public final class FactsListViewModel: FactsListViewModelable {
 
-    // MARK: outputs
-    public var facts = BehaviorSubject(value: [FactViewModel]())
-    public var isLoading = PublishSubject<Bool>()
-    public var errorAction = PublishSubject<String>()
     // MARK: inputs
     public var searchAction = PublishRelay<Void>()
     public var searchActionResult = PublishRelay<SearchFactsSceneResult>()
     public var factShareButtonAction = PublishRelay<FactViewModel>()
+    // MARK: outputs
+    public var facts = BehaviorSubject(value: [FactViewModel]())
+    public var isLoading = PublishSubject<Bool>()
+    public var errorAction = PublishSubject<String>()
 
     let disposeBag = DisposeBag()
 

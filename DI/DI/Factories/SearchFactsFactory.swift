@@ -8,10 +8,9 @@
 import Swinject
 import Facts
 
-class SearchFactsFactory: BaseFactory, SearchFactsFactoryProtocol {
+class SearchFactsFactory: BaseFactory, SearchFactsManufacturing {
 
     func makeSearchFactsViewController() -> SearchFactsViewController {
-        let searchFactsViewController = resolver.resolveSafe(SearchFactsViewController.self)
-        return searchFactsViewController
+        SearchFactsViewController(viewModel: resolver.resolveSafe(SearchFactsViewModelable.self))
     }
 }

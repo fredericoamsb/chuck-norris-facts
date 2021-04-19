@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		7D9B470B81E31FA28746414E /* Pods_DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E5D367CD90F0D55A0C2B240 /* Pods_DI.framework */; };
-		B6268B31261EA3E2000BD908 /* ViewControllersAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6268B30261EA3E1000BD908 /* ViewControllersAssembly.swift */; };
-		B6932A4F2619933400F2DD69 /* InteractorFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6932A4E2619933400F2DD69 /* InteractorFactoryAssembly.swift */; };
-		B6932A592619949B00F2DD69 /* InteractorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6932A582619949B00F2DD69 /* InteractorFactory.swift */; };
 		B6932A5E2619958400F2DD69 /* InteractorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6932A5D2619958400F2DD69 /* InteractorAssembly.swift */; };
 		B6A6C9A52613E96E0097A2DF /* DI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6C99B2613E96E0097A2DF /* DI.framework */; };
 		B6A6C9AA2613E96E0097A2DF /* DITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9A92613E96E0097A2DF /* DITests.swift */; };
@@ -18,8 +15,7 @@
 		B6A6C9B82613E9A10097A2DF /* DepedencyInjector.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9B72613E9A10097A2DF /* DepedencyInjector.swift */; };
 		B6A6C9BD2613EA100097A2DF /* CoordinatorFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9BC2613EA100097A2DF /* CoordinatorFactoryAssembly.swift */; };
 		B6A6C9C32613EA550097A2DF /* CoordinatorAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9C22613EA550097A2DF /* CoordinatorAssembly.swift */; };
-		B6A6C9C72613EA670097A2DF /* ViewControllersFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9C62613EA670097A2DF /* ViewControllersFactoryAssembly.swift */; };
-		B6A6C9CB2613EA730097A2DF /* SearchFactsFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9CA2613EA730097A2DF /* SearchFactsFlowAssembly.swift */; };
+		B6A6C9CB2613EA730097A2DF /* FactsFlowAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9CA2613EA730097A2DF /* FactsFlowAssembly.swift */; };
 		B6A6C9D02613EADA0097A2DF /* BaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9CF2613EADA0097A2DF /* BaseFactory.swift */; };
 		B6A6C9D42613EAE70097A2DF /* CoordinatorFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9D32613EAE70097A2DF /* CoordinatorFactory.swift */; };
 		B6A6C9DA2613EB3A0097A2DF /* ResolverExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6C9D92613EB3A0097A2DF /* ResolverExtension.swift */; };
@@ -29,9 +25,8 @@
 		B6A6CADD2613F70E0097A2DF /* AppNavigation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CADB2613F70E0097A2DF /* AppNavigation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6A6CAE12613F7150097A2DF /* Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE02613F7150097A2DF /* Facts.framework */; };
 		B6A6CAE22613F7150097A2DF /* Facts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAE02613F7150097A2DF /* Facts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B6B9306C2622AC37001B333F /* RepositoryFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9306B2622AC37001B333F /* RepositoryFactoryAssembly.swift */; };
 		B6B930702622AC5A001B333F /* RepositoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B9306F2622AC5A001B333F /* RepositoryAssembly.swift */; };
-		B6B930732622AC8F001B333F /* RepositoryFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B930722622AC8F001B333F /* RepositoryFactory.swift */; };
+		B6F9BF5C262BDD9500C83BD3 /* FactsFlowFactoryAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6F9BF5B262BDD9500C83BD3 /* FactsFlowFactoryAssembly.swift */; };
 		C9AA41B60A58A7006CB74FD1 /* Pods_DI_DITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD2529372320D23F416CEB20 /* Pods_DI_DITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,9 +61,6 @@
 		62CE73B2ED4D0BE996CCCB14 /* Pods-DI-DITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI-DITests.release.xcconfig"; path = "Target Support Files/Pods-DI-DITests/Pods-DI-DITests.release.xcconfig"; sourceTree = "<group>"; };
 		68EA9E8F613D6289C30CF9B7 /* Pods-DI-DITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI-DITests.debug.xcconfig"; path = "Target Support Files/Pods-DI-DITests/Pods-DI-DITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8430E7794EA4636F148EC307 /* Pods-App-DI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-App-DI.debug.xcconfig"; path = "Target Support Files/Pods-App-DI/Pods-App-DI.debug.xcconfig"; sourceTree = "<group>"; };
-		B6268B30261EA3E1000BD908 /* ViewControllersAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersAssembly.swift; sourceTree = "<group>"; };
-		B6932A4E2619933400F2DD69 /* InteractorFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorFactoryAssembly.swift; sourceTree = "<group>"; };
-		B6932A582619949B00F2DD69 /* InteractorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorFactory.swift; sourceTree = "<group>"; };
 		B6932A5D2619958400F2DD69 /* InteractorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractorAssembly.swift; sourceTree = "<group>"; };
 		B6A6C99B2613E96E0097A2DF /* DI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6C99E2613E96E0097A2DF /* DI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DI.h; sourceTree = "<group>"; };
@@ -79,8 +71,7 @@
 		B6A6C9B72613E9A10097A2DF /* DepedencyInjector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepedencyInjector.swift; sourceTree = "<group>"; };
 		B6A6C9BC2613EA100097A2DF /* CoordinatorFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactoryAssembly.swift; sourceTree = "<group>"; };
 		B6A6C9C22613EA550097A2DF /* CoordinatorAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorAssembly.swift; sourceTree = "<group>"; };
-		B6A6C9C62613EA670097A2DF /* ViewControllersFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactoryAssembly.swift; sourceTree = "<group>"; };
-		B6A6C9CA2613EA730097A2DF /* SearchFactsFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFlowAssembly.swift; sourceTree = "<group>"; };
+		B6A6C9CA2613EA730097A2DF /* FactsFlowAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsFlowAssembly.swift; sourceTree = "<group>"; };
 		B6A6C9CF2613EADA0097A2DF /* BaseFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFactory.swift; sourceTree = "<group>"; };
 		B6A6C9D32613EAE70097A2DF /* CoordinatorFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorFactory.swift; sourceTree = "<group>"; };
 		B6A6C9D92613EB3A0097A2DF /* ResolverExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResolverExtension.swift; sourceTree = "<group>"; };
@@ -88,9 +79,8 @@
 		B6A6C9E12613EB910097A2DF /* SearchFactsFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFactsFactory.swift; sourceTree = "<group>"; };
 		B6A6CADB2613F70E0097A2DF /* AppNavigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppNavigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6A6CAE02613F7150097A2DF /* Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B6B9306B2622AC37001B333F /* RepositoryFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryFactoryAssembly.swift; sourceTree = "<group>"; };
 		B6B9306F2622AC5A001B333F /* RepositoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryAssembly.swift; sourceTree = "<group>"; };
-		B6B930722622AC8F001B333F /* RepositoryFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryFactory.swift; sourceTree = "<group>"; };
+		B6F9BF5B262BDD9500C83BD3 /* FactsFlowFactoryAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FactsFlowFactoryAssembly.swift; sourceTree = "<group>"; };
 		C69F4CD91F060E1AA1A17D45 /* Pods-DI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DI.debug.xcconfig"; path = "Target Support Files/Pods-DI/Pods-DI.debug.xcconfig"; sourceTree = "<group>"; };
 		CD2529372320D23F416CEB20 /* Pods_DI_DITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DI_DITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA0CF20B38F7A04B107E44E7 /* Pods-DITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DITests.release.xcconfig"; path = "Target Support Files/Pods-DITests/Pods-DITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -161,7 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				B6A6C9B72613E9A10097A2DF /* DepedencyInjector.swift */,
-				B6A6C9BB2613E9B50097A2DF /* Assemblers */,
+				B6A6C9BB2613E9B50097A2DF /* Assemblies */,
 				B6A6C9CE2613EACC0097A2DF /* Factories */,
 				B6A6C9D92613EB3A0097A2DF /* ResolverExtension.swift */,
 				B6A6C99E2613E96E0097A2DF /* DI.h */,
@@ -179,28 +169,23 @@
 			path = DITests;
 			sourceTree = "<group>";
 		};
-		B6A6C9BB2613E9B50097A2DF /* Assemblers */ = {
+		B6A6C9BB2613E9B50097A2DF /* Assemblies */ = {
 			isa = PBXGroup;
 			children = (
-				B6B9306B2622AC37001B333F /* RepositoryFactoryAssembly.swift */,
-				B6B9306F2622AC5A001B333F /* RepositoryAssembly.swift */,
-				B6932A4E2619933400F2DD69 /* InteractorFactoryAssembly.swift */,
-				B6932A5D2619958400F2DD69 /* InteractorAssembly.swift */,
 				B6A6C9BC2613EA100097A2DF /* CoordinatorFactoryAssembly.swift */,
 				B6A6C9C22613EA550097A2DF /* CoordinatorAssembly.swift */,
-				B6A6C9CA2613EA730097A2DF /* SearchFactsFlowAssembly.swift */,
-				B6A6C9C62613EA670097A2DF /* ViewControllersFactoryAssembly.swift */,
-				B6268B30261EA3E1000BD908 /* ViewControllersAssembly.swift */,
+				B6F9BF5B262BDD9500C83BD3 /* FactsFlowFactoryAssembly.swift */,
+				B6A6C9CA2613EA730097A2DF /* FactsFlowAssembly.swift */,
+				B6932A5D2619958400F2DD69 /* InteractorAssembly.swift */,
+				B6B9306F2622AC5A001B333F /* RepositoryAssembly.swift */,
 			);
-			path = Assemblers;
+			path = Assemblies;
 			sourceTree = "<group>";
 		};
 		B6A6C9CE2613EACC0097A2DF /* Factories */ = {
 			isa = PBXGroup;
 			children = (
 				B6A6C9CF2613EADA0097A2DF /* BaseFactory.swift */,
-				B6B930722622AC8F001B333F /* RepositoryFactory.swift */,
-				B6932A582619949B00F2DD69 /* InteractorFactory.swift */,
 				B6A6C9D32613EAE70097A2DF /* CoordinatorFactory.swift */,
 				B6A6C9DD2613EB550097A2DF /* FactsListFactory.swift */,
 				B6A6C9E12613EB910097A2DF /* SearchFactsFactory.swift */,
@@ -396,23 +381,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B6B9306C2622AC37001B333F /* RepositoryFactoryAssembly.swift in Sources */,
 				B6A6C9C32613EA550097A2DF /* CoordinatorAssembly.swift in Sources */,
-				B6932A592619949B00F2DD69 /* InteractorFactory.swift in Sources */,
 				B6B930702622AC5A001B333F /* RepositoryAssembly.swift in Sources */,
 				B6A6C9DE2613EB550097A2DF /* FactsListFactory.swift in Sources */,
 				B6A6C9E22613EB910097A2DF /* SearchFactsFactory.swift in Sources */,
 				B6A6C9DA2613EB3A0097A2DF /* ResolverExtension.swift in Sources */,
 				B6A6C9D02613EADA0097A2DF /* BaseFactory.swift in Sources */,
+				B6F9BF5C262BDD9500C83BD3 /* FactsFlowFactoryAssembly.swift in Sources */,
 				B6A6C9D42613EAE70097A2DF /* CoordinatorFactory.swift in Sources */,
-				B6A6C9CB2613EA730097A2DF /* SearchFactsFlowAssembly.swift in Sources */,
-				B6B930732622AC8F001B333F /* RepositoryFactory.swift in Sources */,
-				B6A6C9C72613EA670097A2DF /* ViewControllersFactoryAssembly.swift in Sources */,
+				B6A6C9CB2613EA730097A2DF /* FactsFlowAssembly.swift in Sources */,
 				B6932A5E2619958400F2DD69 /* InteractorAssembly.swift in Sources */,
-				B6268B31261EA3E2000BD908 /* ViewControllersAssembly.swift in Sources */,
 				B6A6C9BD2613EA100097A2DF /* CoordinatorFactoryAssembly.swift in Sources */,
 				B6A6C9B82613E9A10097A2DF /* DepedencyInjector.swift in Sources */,
-				B6932A4F2619933400F2DD69 /* InteractorFactoryAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

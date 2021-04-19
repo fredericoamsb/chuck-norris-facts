@@ -20,7 +20,7 @@ class CoordinatorAssembly: Assembly {
 
     func assemble(container: Container) {
 
-        let coordinatorFactory = container.resolveSafe(CoordinatorFactoryProtocol.self)
+        let coordinatorFactory = container.resolveSafe(CoordinatorManufacturing.self)
 
         // MARK: AppCoordinator
         container.register(AppCoordinator.self) { _ in
@@ -32,8 +32,8 @@ class CoordinatorAssembly: Assembly {
 
         // MARK: SearchFactsCoordinator
         container.register(SearchFactsCoordinator.self) { resolver in
-            let factsListFactory = resolver.resolveSafe(FactsListFactoryProtocol.self)
-            let searchFactsFactory = resolver.resolveSafe(SearchFactsFactoryProtocol.self)
+            let factsListFactory = resolver.resolveSafe(FactsListManufacturing.self)
+            let searchFactsFactory = resolver.resolveSafe(SearchFactsManufacturing.self)
             let searchFactsCoordinator = SearchFactsCoordinator(navigationController: appCoordinator.navigationController,
                                                                 factsListFactory: factsListFactory,
                                                                 searchFactsFactory: searchFactsFactory)

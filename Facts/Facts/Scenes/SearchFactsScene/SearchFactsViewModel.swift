@@ -6,26 +6,7 @@
 //
 
 import RxSwift
-import RxCocoa
-
-public enum SearchFactsSceneResult: Equatable {
-    case cancel
-    case search(String)
-
-    var `case`: Case {
-        switch self {
-        case .search:
-            return .search
-        case .cancel:
-            return .cancel
-        }
-    }
-
-    enum Case {
-        case cancel
-        case search
-    }
-}
+import RxRelay
 
 public protocol SearchFactsSceneCoordinating {
 
@@ -34,15 +15,19 @@ public protocol SearchFactsSceneCoordinating {
 
 public protocol SearchFactsViewModelable {
 
+    // MARK: inputs
     var cancelAction: PublishRelay<Void> { get }
     var searchAction: PublishRelay<String> { get }
+    // MARK: outputs
     var result: Observable<SearchFactsSceneResult> { get }
 }
 
 public final class SearchFactsViewModel: SearchFactsViewModelable {
 
+    // MARK: inputs
     public var cancelAction = PublishRelay<Void>()
     public var searchAction = PublishRelay<String>()
+    // MARK: outputs
     public var result: Observable<SearchFactsSceneResult>
 
     public init(coordinator: SearchFactsSceneCoordinating) {

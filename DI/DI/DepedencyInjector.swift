@@ -20,15 +20,12 @@ public class DependencyInjector {
 
     public func build(completion: (_ appCoordinator: AppCoordinator) -> Void) {
         let assembler = Assembler([
-            RepositoryFactoryAssembly(),
             RepositoryAssembly(),
-            InteractorFactoryAssembly(),
             InteractorAssembly(),
             CoordinatorFactoryAssembly(),
-            CoordinatorAssembly(navigationController: self.navigationController),
-            ViewControllersFactoryAssembly(),
-            ViewControllersAssembly(),
-            SearchFactsFlowAssembly()
+            CoordinatorAssembly(navigationController: navigationController),
+            FactsFlowFactoryAssembly(),
+            FactsFlowAssembly()
         ])
         let appCoordinator = assembler.resolver.resolveSafe(AppCoordinator.self)
         completion(appCoordinator)
