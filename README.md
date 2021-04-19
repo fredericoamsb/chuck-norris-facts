@@ -39,8 +39,12 @@ The features are the following:
 The development progress is detailed in the [Projects tab](https://github.com/fredericoamsb/chuck-norris-facts/projects/1).
 
 ### Screenshots
-
-Coming soon
+<p>
+  <img src=".github/images/home-dark.png" width=200>
+  <img src=".github/images/search-dark.png" width=200>
+  <img src=".github/images/home-light.png" width=200>
+  <img src=".github/images/search-light.png" width=200>
+</p>
 
 ## Getting Started
 
@@ -69,6 +73,8 @@ This project follows the [S.O.L.I.D. Principles](https://medium.com/flawless-app
 ### Architecture
 
 This project architecture follows the concepts of [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) written by Uncle Bob. Each layer has its own set of models, classes, and protocols, being the last one used for communication among the layers (Dependency Inversion Principle).
+
+<img width="750" src=".github/images/diagram.png">
 
 ### Modularization
 
