@@ -5,7 +5,7 @@
 
 ## Table of Contents
 
-* [About the Project](#about-the-project)
+* [About this Project](#about-the-project)
   * [Features](#features)
   * [Screenshots](#screenshots)
 * [Getting Started](#getting-started)
@@ -36,7 +36,7 @@ The features are the following:
 * Searching and listing Chuck Norris Facts;
 * Sharing a Fact.
 
-The development progress is detailed in the [Project tab](https://github.com/fredericoamsb/chuck-norris-facts/projects/1).
+The development progress is detailed in the [Projects tab](https://github.com/fredericoamsb/chuck-norris-facts/projects/1).
 
 ### Screenshots
 
@@ -54,7 +54,7 @@ Coming soon
 * You should clone the repository: `$ git clone https://github.com/fredericoamsb/chuck-norris-facts.git`;
 * Enter the project folder `$ cd chuck-norris-facts`;
 * Open the project on Xcode: `$ open -a Xcode ChuckNorrisFacts.xcworkspace`;
-* Press the ▶️ button or the shortcut "⌘ R" then it will run 🏃🏻.
+* Press the ▶️  button or the shortcut "⌘ R" then it will run 🏃🏻 .
 
 ## Technical
 
@@ -75,7 +75,7 @@ This project architecture follows the concepts of [Clean Architecture](https://b
 This project is organized in modules primarily following the segregation of layers presented by Clean Architecture. Also, each layer has its own segregation:
 
 * App: application original module;
-* DI: module for dependency Injection;
+* DI: module for dependency injection;
 * Domain: module containing the bussiness rules of the project, applied by models and use case interactors. It does not depend from any other module and provide protocols to be used or implemented by the other modules. For instance, Repository for the Data layer and Interactor for the Presentation layer;
 * Presentation: This layer is segregated mainly by features. In this project there is just the Facts feature, but you may consider larger concepts. For instance all flows related to transfers in a banking app would have a module. In the same way all flows related to registration in another module. For sharing code between these features, you could have the Common module. However since these features don't know each other, they can't navigated to one another. For that you have the AppNavigation module, which knows any present feature and can navigative from/to them using protocols implemented by coordinators.
   * Facts: a feature to search and share facts about Chuck Norris.
