@@ -52,7 +52,7 @@ class SearchFactsViewControllerTests: XCTestCase {
         let expectedTotal = Resources.total
         autoreleasepool {
             let vc = SearchFactsViewController(viewModel: vm)
-            _ = vc.view
+            vc.loadViewIfNeeded()
         }
         let currentTotal = Resources.total
         XCTAssertEqual(expectedTotal, currentTotal)

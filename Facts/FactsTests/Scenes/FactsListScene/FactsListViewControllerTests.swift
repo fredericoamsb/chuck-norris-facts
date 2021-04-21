@@ -40,19 +40,19 @@ class FactListViewControllerTests: XCTestCase {
     }
 
     func test_title_shouldBeCorrect() {
-        _ = sut.view
+        sut.loadViewIfNeeded()
 
         XCTAssertEqual(L10n.FactsList.title, sut.title)
     }
 
     func test_searchButtonIcon_shouldBeCorrect() {
-        _ = sut.view
+        sut.loadViewIfNeeded()
 
         XCTAssertTrue(sut.navigationItem.rightBarButtonItem!.description.contains("systemItem=Search"))
     }
 
     func test_whenTapSearchButton_shouldShowSearchScreen() {
-        _ = sut.view
+        sut.loadViewIfNeeded()
 
         let searchButtonTappedObserver = scheduler.createObserver(Void.self)
         vm.searchAction
@@ -80,7 +80,7 @@ class FactListViewControllerTests: XCTestCase {
         let expectedTotal = Resources.total
         autoreleasepool {
             let vc = FactsListViewController(viewModel: vm)
-            _ = vc.view
+            vc.loadViewIfNeeded()
         }
         let currentTotal = Resources.total
         XCTAssertEqual(expectedTotal, currentTotal)
