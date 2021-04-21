@@ -92,11 +92,11 @@ public final class FactsListViewController: UIViewController {
                 .disposed(by: cell.disposeBag)
         }.disposed(by: disposeBag)
 
-        viewModel.errorAction.bind { errorMessage in
+        viewModel.errorAction.bind { [weak self] errorMessage in
             let alert = UIAlertController(title: L10n.FactsList.Alert.title, message: errorMessage, preferredStyle: .alert)
             let action = UIAlertAction(title: L10n.FactsList.Alert.button, style: .default)
             alert.addAction(action)
-            self.present(alert, animated: true)
+            self?.present(alert, animated: true)
         }.disposed(by: disposeBag)
 
         searchButton.rx.tap

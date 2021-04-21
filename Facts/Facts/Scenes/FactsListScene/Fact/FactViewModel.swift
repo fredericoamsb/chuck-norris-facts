@@ -28,13 +28,13 @@ public final class FactViewModel: Equatable {
 extension Fact {
 
     var asViewModel: FactViewModel {
-        FactViewModel(description: self.value, category: self.categories.first, url: self.url)
+        FactViewModel(description: value, category: categories.first, url: url)
     }
 }
 
 extension Array where Element == Fact {
 
     var asViewModels: [FactViewModel] {
-        self.map { $0.asViewModel }
+        map { $0.asViewModel }
     }
 }

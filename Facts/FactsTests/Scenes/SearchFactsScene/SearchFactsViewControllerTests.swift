@@ -39,4 +39,22 @@ class SearchFactsViewControllerTests: XCTestCase {
     func test_searchBarPlaceholder_shouldStartEmpty() {
         XCTAssertEqual(sut.searchController.searchBar.text, "")
     }
+
+    func test_shouldNotHaveMemoryLeak() {
+        weak var leakReference = sut
+
+        sut = nil
+
+        XCTAssert(leakReference == nil)
+    }
+
+    func test_rxShouldNotLeak() {
+        let expectedTotal = Resources.total
+        autoreleasepool {
+            let vc = SearchFactsViewController(viewModel: vm)
+            vc.loadViewIfNeeded()
+        }
+        let currentTotal = Resources.total
+        XCTAssertEqual(expectedTotal, currentTotal)
+    }
 }

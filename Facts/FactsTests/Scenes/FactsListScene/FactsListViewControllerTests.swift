@@ -28,8 +28,6 @@ class FactListViewControllerTests: XCTestCase {
         vm = FactsListViewModel(coordinator: factsCoordinatorMock, interactor: factsInteractorMock)
         sut = FactsListViewController(viewModel: vm)
         disposeBag = DisposeBag()
-        sut.loadView()
-        sut.viewDidLoad()
     }
 
     override func tearDown() {
@@ -42,14 +40,20 @@ class FactListViewControllerTests: XCTestCase {
     }
 
     func test_title_shouldBeCorrect() {
+        sut.loadViewIfNeeded()
+
         XCTAssertEqual(L10n.FactsList.title, sut.title)
     }
 
     func test_searchButtonIcon_shouldBeCorrect() {
+        sut.loadViewIfNeeded()
+
         XCTAssertTrue(sut.navigationItem.rightBarButtonItem!.description.contains("systemItem=Search"))
     }
 
     func test_whenTapSearchButton_shouldShowSearchScreen() {
+        sut.loadViewIfNeeded()
+
         let searchButtonTappedObserver = scheduler.createObserver(Void.self)
         vm.searchAction
             .bind(to: searchButtonTappedObserver)
@@ -62,5 +66,23 @@ class FactListViewControllerTests: XCTestCase {
         let searchButtonTappedEvents: [Void] = searchButtonTappedObserver.events.compactMap { $0.value.element }
         XCTAssertEqual(searchButtonTappedEvents.count, 1)
         XCTAssertTrue(factsCoordinatorMock.calledSearchFact)
+    }
+
+    func test_shouldNotHaveMemoryLeak() {
+        weak var leakReference = sut
+
+        sut = nil
+
+        XCTAssert(leakReference == nil)
+    }
+
+    func test_rxShouldNotLeak() {
+        let expectedTotal = Resources.total
+        autoreleasepool {
+            let vc = FactsListViewController(viewModel: vm)
+            vc.loadViewIfNeeded()
+        }
+        let currentTotal = Resources.total
+        XCTAssertEqual(expectedTotal, currentTotal)
     }
 }

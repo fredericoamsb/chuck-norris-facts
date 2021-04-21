@@ -60,4 +60,21 @@ class SearchFactsViewModelTests: XCTestCase {
         XCTAssertEqual(resultEvents, [.cancel])
         XCTAssertTrue(factsCoordinatorMock.calledBackToList)
     }
+
+    func test_shouldNotHaveMemoryLeak() {
+        weak var leakReference = sut
+
+        sut = nil
+
+        XCTAssert(leakReference == nil)
+    }
+
+    func test_rxShouldNotLeak() {
+        let expectedTotal = Resources.total
+        autoreleasepool {
+            _ = SearchFactsViewModel(coordinator: factsCoordinatorMock)
+        }
+        let currentTotal = Resources.total
+        XCTAssertEqual(expectedTotal, currentTotal)
+    }
 }

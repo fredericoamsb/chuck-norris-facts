@@ -241,4 +241,21 @@ class FactsListViewModelTests: XCTestCase {
                                          FactViewModel(description: "fact 2 description")])
         XCTAssertTrue(factsCoordinatorMock.calledShareFact)
     }
+
+    func test_shouldNotHaveMemoryLeak() {
+        weak var leakReference = sut
+
+        sut = nil
+
+        XCTAssert(leakReference == nil)
+    }
+
+    func test_rxShouldNotLeak() {
+        let expectedTotal = Resources.total
+        autoreleasepool {
+            _ = FactsListViewModel(coordinator: factsCoordinatorMock, interactor: factsInteractorMock)
+        }
+        let currentTotal = Resources.total
+        XCTAssertEqual(expectedTotal, currentTotal)
+    }
 }

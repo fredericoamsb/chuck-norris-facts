@@ -51,8 +51,8 @@ public final class SearchFactsViewController: UISearchContainerViewController {
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
 
-        DispatchQueue.main.async {
-            self.searchController.searchBar.becomeFirstResponder()
+        DispatchQueue.main.async { [weak self] in
+            self?.searchController.searchBar.becomeFirstResponder()
         }
     }
 }
