@@ -27,7 +27,6 @@
 		B6A6CB172613F8730097A2DF /* SwiftGenStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CB162613F8730097A2DF /* SwiftGenStrings.swift */; };
 		B6A6CB1A2613F8D50097A2DF /* FactListCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6A6CB192613F8D50097A2DF /* FactListCellTests.swift */; };
 		B6A6CB4B2613FA5C0097A2DF /* Domain.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAEB2613F7310097A2DF /* Domain.framework */; };
-		B6A6CB4C2613FA5C0097A2DF /* Domain.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CAEB2613F7310097A2DF /* Domain.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B6A6CB98261401AB0097A2DF /* Facts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B6A6CA232613EF9D0097A2DF /* Facts.framework */; };
 		B6B932AD26242633001B333F /* searchFactsResponse1.json in Resources */ = {isa = PBXBuildFile; fileRef = B6B932A926242633001B333F /* searchFactsResponse1.json */; };
 		B6B932AE26242634001B333F /* searchFactsResponse2.json in Resources */ = {isa = PBXBuildFile; fileRef = B6B932AA26242633001B333F /* searchFactsResponse2.json */; };
@@ -56,20 +55,6 @@
 			remoteInfo = Facts;
 		};
 /* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		B6A6CB4D2613FA5C0097A2DF /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B6A6CB4C2613FA5C0097A2DF /* Domain.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		16D8DE31B31EF01AF503C545 /* Pods_Facts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Facts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,7 +399,6 @@
 				B6A6CA1F2613EF9D0097A2DF /* Sources */,
 				B6A6CA202613EF9D0097A2DF /* Frameworks */,
 				B6A6CA212613EF9D0097A2DF /* Resources */,
-				B6A6CB4D2613FA5C0097A2DF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
